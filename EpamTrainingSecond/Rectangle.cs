@@ -25,6 +25,5 @@ namespace EpamTrainingSecond
         {
             Console.WriteLine(2 * (Height + Width));
         }
-        
     }
 }

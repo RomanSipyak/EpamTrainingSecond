@@ -8,9 +8,6 @@ namespace EpamTrainingSecond
 {
     class Coordinate : ShowInterface
     {
-        public void Show()
-        {
-            
-        }
+        public void Show() { }
     }
 }

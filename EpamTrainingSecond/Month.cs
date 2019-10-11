@@ -8,7 +8,7 @@ namespace EpamTrainingSecond
 {
     class MonthWriter
     {
-        enum Month { January, February, March, April, May, June, July, August, September,October, November, December }
+        enum Month { January, February, March, April, May, June, July, August, September, October, November, December }
 
         public static string GetMonthByNumber(uint NumberOfMonth)
         {

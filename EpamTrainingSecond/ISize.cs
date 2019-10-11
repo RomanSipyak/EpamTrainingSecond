@@ -8,10 +8,9 @@ namespace EpamTrainingSecond
 {
     interface ISize
     {
-         int Height { get; set; }
-         int Width { get; set; }
+        int Height { get; set; }
+        int Width { get; set; }
 
-         void Perimetr();
-        
+        void Perimetr();
     }
 }

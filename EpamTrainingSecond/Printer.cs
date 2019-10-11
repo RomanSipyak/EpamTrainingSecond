@@ -6,11 +6,11 @@ using System.Threading.Tasks;
 
 namespace EpamTrainingSecond
 {
-    class Printer : ShowInterface 
+    class Printer : ShowInterface
     {
         public void Show()
         {
-            Person person = new Person("Roma", "Sypiak",21);
+            Person person = new Person("Roma", "Sypiak", 21);
             Console.WriteLine(person.GetElder(15));
             Console.WriteLine(person.GetElder(21));
             uint n = Convert.ToUInt32(Console.ReadLine());
@@ -18,9 +18,8 @@ namespace EpamTrainingSecond
             foreach (var value in Enum<Colors>.SortedValues)
             {
                 Console.WriteLine(value);
-
             }
-            Console.WriteLine("Min = > {0}",LongRangeTask.OutputLongRange(LongRange.Min));
+            Console.WriteLine("Min = > {0}", LongRangeTask.OutputLongRange(LongRange.Min));
             Console.WriteLine("Max = > {0}", LongRangeTask.OutputLongRange(LongRange.Max));
             Console.ReadKey();
         }

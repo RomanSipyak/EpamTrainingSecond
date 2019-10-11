@@ -12,7 +12,7 @@ namespace EpamTrainingSecond
         public string SurName { get; set; }
         public ushort YearOld { get; set; }
 
-       public Person(string Name, string SurName, ushort YearOld)
+        public Person(string Name, string SurName, ushort YearOld)
         {
             this.Name = Name;
             this.SurName = SurName;
@@ -25,6 +25,6 @@ namespace EpamTrainingSecond
                                  $"{Name} {SurName} younger than {n}";
         }
 
-       
+
     }
 }
