@@ -1,6 +1,5 @@
 ﻿using PrinterHelpers;
 using PrinterHelpers.PrintersImplementations;
-using RunProject.RunImplementations.Training1;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -14,11 +13,13 @@ namespace RunProject
         static void Main(string[] args)
         {
             Dictionary<string, IRun> menu = new Dictionary<string, IRun>();
-            menu.Add("T1TaskAll", new RunnerForAllTasks(new ConsolePrinter()));
+            menu.Add("T1TaskAll", new RunImplementations.Training1.RunnerForAllTasks(new ConsolePrinter()));
+            menu.Add("T2TaskAll", new RunImplementations.Training2.RunnerForAllTasks(new ConsolePrinter()));
             bool exit = true;
             do
             {
                 Console.WriteLine("If you want run Training1 AkkTask write T1TaskAll ");
+                Console.WriteLine("If you want run Training1 AkkTask write T2TaskAll ");
                 string key = Console.ReadLine();
 
                 if (menu.ContainsKey(key))
