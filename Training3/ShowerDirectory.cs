@@ -8,27 +8,16 @@ using System.Threading.Tasks;
 
 namespace Training3
 {
-    class ShowerDirectory
+    public class ShowerDirectory
     {
-        public static void ShowerDirectoryAndFiles(string path)
+        public string ShowerDirectoryAndFiles(string path, StringBuilder stringbuilder)
         {
             try
             {
-                StringBuilder sb = new StringBuilder();
                 DirectoryInfo directory = new DirectoryInfo(path);
                 DirectoryInfo[] subDirectories = directory.GetDirectories();
                 FileInfo[] files = directory.GetFiles();
-
-                string searchPart = "with";
-                Regex regex = new Regex(@"\w*"+ searchPart + @"\w*", RegexOptions.IgnoreCase);
-                foreach (FileInfo file in files)
-                {
-                    if (regex.IsMatch(file.ToString()))
-                    {
-                        Console.WriteLine($"We find ==>{file}");
-                    }
-                    Console.WriteLine($"{file.DirectoryName} ==> {file}");
-                }
+                stringbuilder.Append(FileWriter(files));
                 if (directory.GetDirectories().Length == 0)
                 {
                 }
@@ -36,17 +25,43 @@ namespace Training3
                 {
                     foreach (DirectoryInfo dir in subDirectories)
                     {
-                        Console.WriteLine("{0} ==> {1}", dir.FullName, dir);
-                        ShowerDirectoryAndFiles(dir.FullName);
+                        stringbuilder.AppendLine($"{dir.FullName} ==> {dir}");
+                        ShowerDirectoryAndFiles(dir.FullName, stringbuilder);
                     }
                 }
+                return stringbuilder.ToString();
             }
             catch (Exception e)
             {
                 throw e;
             }
-
-            
+        }
+        public string FileWriter(FileInfo[] filesinfo)
+        {   
+            StringBuilder stringbuilder = new StringBuilder();
+            foreach (FileInfo file in filesinfo)
+            {
+                stringbuilder.AppendLine($"{file.DirectoryName} ==> {file}");
+            }
+            return stringbuilder.ToString();
+        }
+        public string SearchInString(String strings, String nameOfFile)
+        {
+            StringBuilder stringbuilder = new StringBuilder();
+            string[] liness = Regex.Split(strings, "\r\n");
+            Regex regex = new Regex(@"\w*" + nameOfFile + @"\w*", RegexOptions.IgnoreCase);
+            foreach (String line in liness)
+            {
+                if (regex.IsMatch(line))
+                {
+                    stringbuilder.AppendLine($"We find your file in ==>{line.Replace("\r", "").Replace("\n", "")}");
+                }
+            }
+            return stringbuilder.ToString();
+        }
+        public string SearchByRootPath(String PathForDirectory, String nameOfFile)
+        {
+            return SearchInString(ShowerDirectoryAndFiles(PathForDirectory, new StringBuilder()), nameOfFile);
         }
     }
 }

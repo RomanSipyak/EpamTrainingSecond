@@ -48,6 +48,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="RunImplementations\Training1\RunnerForAllTasks.cs" />
     <Compile Include="RunImplementations\Training2\RunnerForAllTasks.cs" />
+    <Compile Include="RunImplementations\Training3\RunnerForAllTasks.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
@@ -64,6 +65,10 @@
     <ProjectReference Include="..\Training2\Training2.csproj">
       <Project>{f7b05407-edbe-4931-9147-d9d31aef254f}</Project>
       <Name>Training2</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Training3\Training3.csproj">
+      <Project>{39fe07c5-e315-48e4-957d-2f0c825086a9}</Project>
+      <Name>Training3</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
