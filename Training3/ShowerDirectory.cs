@@ -6,7 +6,7 @@ using System.Text;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 
-namespace ConsoleApp1
+namespace Training3
 {
     class ShowerDirectory
     {
@@ -14,9 +14,11 @@ namespace ConsoleApp1
         {
             try
             {
+                StringBuilder sb = new StringBuilder();
                 DirectoryInfo directory = new DirectoryInfo(path);
                 DirectoryInfo[] subDirectories = directory.GetDirectories();
                 FileInfo[] files = directory.GetFiles();
+
                 string searchPart = "with";
                 Regex regex = new Regex(@"\w*"+ searchPart + @"\w*", RegexOptions.IgnoreCase);
                 foreach (FileInfo file in files)
@@ -43,6 +45,8 @@ namespace ConsoleApp1
             {
                 throw e;
             }
+
+            
         }
     }
 }
