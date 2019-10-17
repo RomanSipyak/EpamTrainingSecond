@@ -6,7 +6,10 @@ using System.Threading.Tasks;
 
 namespace Trainig1.Task5
 {
-    public enum LongRange : Int64 { Max = 9223372036854775807, Min = -9223372036854775808 }
+    public enum LongRange : long
+    {
+        Max = 9223372036854775807, Min = -9223372036854775808
+    }
 
     public static class LongRangeTask
     {
@@ -16,15 +19,17 @@ namespace Trainig1.Task5
             {
                 case LongRange.Max:
                     {
-                        return (Int64)(LongRange.Max);
+                        return (long)LongRange.Max;
                     }
+
                 case LongRange.Min:
                     {
-                        return (Int64)(LongRange.Min);
+                        return (long)LongRange.Min;
                     }
+
                 default:
                     {
-                        return default(Int64);
+                        return default(long);
                     }
             }
         }

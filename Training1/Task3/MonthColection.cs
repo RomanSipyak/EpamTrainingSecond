@@ -8,15 +8,19 @@ namespace Trainig1.Task3
 {
     public class MonthColection
     {
-        enum Month { January, February, March, April, May, June, July, August, September, October, November, December }
-
-        public static string GetMonthByNumber(uint NumberOfMonth)
+        enum Month
         {
-            if (NumberOfMonth >= 0 && NumberOfMonth <= 12)
+            January, February, March, April, May, June, July, August, September, October, November, December
+        }
+
+        public static string GetMonthByNumber(uint numberOfMonth)
+        {
+            if (numberOfMonth >= 0 && numberOfMonth <= 12)
             {
-                return Enum.GetName(typeof(Month), NumberOfMonth - 1);
+                return Enum.GetName(typeof(Month), numberOfMonth - 1);
             }
-            return "";
+
+            return string.Empty;
         }
     }
 }

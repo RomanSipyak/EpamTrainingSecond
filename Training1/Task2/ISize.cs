@@ -6,9 +6,10 @@ using System.Threading.Tasks;
 
 namespace Trainig1.Task2
 {
-    interface ISize
+    public interface ISize
     {
         int Height { get; set; }
+
         int Width { get; set; }
 
         double Perimetr();

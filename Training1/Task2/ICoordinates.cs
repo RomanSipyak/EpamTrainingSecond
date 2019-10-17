@@ -6,9 +6,10 @@ using System.Threading.Tasks;
 
 namespace Trainig1.Task2
 {
-    interface ICoordinates
+    public interface ICoordinates
     {
         int X { get; set; }
+
         int Y { get; set; }
     }
 }
