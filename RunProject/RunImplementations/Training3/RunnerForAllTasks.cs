@@ -21,7 +21,7 @@ namespace RunProject.RunImplementations.Training3
         {
             ShowerDirectory sd = new ShowerDirectory();
             String filesAndDerectories = sd.ShowerDirectoryAndFiles("C:\\Users\\GOOD\\source\\repos\\EpamTrainingSecond", new StringBuilder());
-           // Printer.Writeline(filesAndDerectories);
+            Printer.Writeline(filesAndDerectories);
             Printer.Writeline(sd.SearchByRootPath("C:\\Users\\GOOD\\source\\repos\\EpamTrainingSecond","with"));
             Console.ReadLine();
             return true;
