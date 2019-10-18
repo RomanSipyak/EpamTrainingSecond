@@ -9,6 +9,7 @@ namespace Logger
   public interface ILogger
     {
         void ReadMessage();
-        void WriteMessage( Exception e );
+
+        void WriteMessage(Exception e);
     }
 }

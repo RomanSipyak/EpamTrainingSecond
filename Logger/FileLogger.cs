@@ -6,17 +6,15 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-
 namespace Logger
 {
     public class FileLogger : ILogger
     {
-        string PathOfFile { get; set; } = ConfigurationManager.AppSettings["PathToLog"].ToString();
+        public string PathOfFile { get; set; } = ConfigurationManager.AppSettings["PathToLog"].ToString();
 
         public void ReadMessage()
         {
-
-            using (StreamReader sr = new StreamReader(PathOfFile))
+            using (StreamReader sr = new StreamReader(this.PathOfFile))
             {
                 string line;
                 while ((line = sr.ReadLine()) != null)
@@ -28,11 +26,12 @@ namespace Logger
 
         public void WriteMessage(Exception e)
         {
-            if (!File.Exists(PathOfFile))
+            if (!File.Exists(this.PathOfFile))
             {
-                File.Create(PathOfFile);
+                File.Create(this.PathOfFile);
             }
-            using (StreamWriter sw = File.AppendText(PathOfFile))
+
+            using (StreamWriter sw = File.AppendText(this.PathOfFile))
             {
                 sw.WriteLine(e.Message);
             }
