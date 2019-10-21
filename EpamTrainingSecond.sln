@@ -17,6 +17,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RunProject", "RunProject\Ru
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Logger", "Logger\Logger.csproj", "{15BE4A8A-1140-4DA9-BE94-AAE919C61779}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Training5", "Training5\Training5.csproj", "{F8CFA74D-E5CA-4320-A5D7-FE93040C4723}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -51,6 +53,10 @@ Global
 		{15BE4A8A-1140-4DA9-BE94-AAE919C61779}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{15BE4A8A-1140-4DA9-BE94-AAE919C61779}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{15BE4A8A-1140-4DA9-BE94-AAE919C61779}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F8CFA74D-E5CA-4320-A5D7-FE93040C4723}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F8CFA74D-E5CA-4320-A5D7-FE93040C4723}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F8CFA74D-E5CA-4320-A5D7-FE93040C4723}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F8CFA74D-E5CA-4320-A5D7-FE93040C4723}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
