@@ -12,8 +12,8 @@ namespace Training5.Task1
         public string Marck { get; set; }
 
         public int Speed { get; set; }
-        
-       public override string ToString()
+
+        public override string ToString()
         {
             return $"Mark => {Marck} Speed=> {Speed}";
         }

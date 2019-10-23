@@ -50,6 +50,7 @@
     <Compile Include="RunImplementations\Training2\RunnerForAllTasks.cs" />
     <Compile Include="RunImplementations\Training3\RunnerForAllTasks.cs" />
     <Compile Include="RunImplementations\Training5\RunImplementationForSerializerCar.cs" />
+    <Compile Include="RunImplementations\Training6\ReflectionImplementation.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
