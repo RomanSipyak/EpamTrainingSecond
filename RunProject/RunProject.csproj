@@ -56,6 +56,10 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\Logger\Logger.csproj">
+      <Project>{15be4a8a-1140-4da9-be94-aae919c61779}</Project>
+      <Name>Logger</Name>
+    </ProjectReference>
     <ProjectReference Include="..\PrinterHelpers\PrinterHelpers.csproj">
       <Project>{c0091fb5-3458-41d5-8c8c-4ac6c62dc3c7}</Project>
       <Name>PrinterHelpers</Name>

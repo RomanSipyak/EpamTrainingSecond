@@ -21,10 +21,17 @@ namespace Training5.Task1
         {
             using (FileStream fs = new FileStream(this.BinaryPath, FileMode.Open))
             {
-                BinaryFormatter bf = new BinaryFormatter();
-                List<Car> data;
-                data = (List<Car>)bf.Deserialize(fs);
-                return data;
+                try
+                {
+                    BinaryFormatter bf = new BinaryFormatter();
+                    List<Car> data;
+                    data = (List<Car>)bf.Deserialize(fs);
+                    return data;
+                }
+                catch (Exception e)
+                {
+                    throw e;
+                }
             }
         }
 
@@ -37,10 +44,17 @@ namespace Training5.Task1
         {
             using (FileStream fs = new FileStream(this.XmlPath, FileMode.Open))
             {
-                XmlSerializer xs = new XmlSerializer(typeof(List<Car>));
-                List<Car> data;
-                data = (List<Car>)xs.Deserialize(fs);
-                return data;
+                try
+                {
+                    XmlSerializer xs = new XmlSerializer(typeof(List<Car>));
+                    List<Car> data;
+                    data = (List<Car>)xs.Deserialize(fs);
+                    return data;
+                }
+                catch (Exception e)
+                {
+                    throw e;
+                }
             }
         }
 
@@ -48,24 +62,45 @@ namespace Training5.Task1
         {
             using (FileStream fs = new FileStream(this.BinaryPath, FileMode.Create))
             {
-                BinaryFormatter bf = new BinaryFormatter();
-                bf.Serialize(fs, objects);
+                try
+                {
+                    BinaryFormatter bf = new BinaryFormatter();
+                    bf.Serialize(fs, objects);
+                }
+                catch (Exception e)
+                {
+                    throw e;
+                }
             }
         }
 
         public string SerializeForJson(List<Car> objects)
         {
-            string jsonData = JsonConvert.SerializeObject(objects);
+            try
+            {
+                string jsonData = JsonConvert.SerializeObject(objects);
 
-            return jsonData;
+                return jsonData;
+            }
+            catch (Exception e)
+            {
+                throw e;
+            }
         }
 
         public void SerializeForXML(List<Car> objects)
         {
             using (FileStream fs = new FileStream(this.XmlPath, FileMode.Create))
             {
-                XmlSerializer xs = new XmlSerializer(typeof(List<Car>));
-                xs.Serialize(fs, objects);
+                try
+                {
+                    XmlSerializer xs = new XmlSerializer(typeof(List<Car>));
+                    xs.Serialize(fs, objects);
+                }
+                catch (Exception e)
+                {
+                    throw e;
+                }
             }
         }
     }

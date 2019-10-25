@@ -50,7 +50,6 @@ namespace RunProject.RunImplementations.Training6
                         }
                     }
                 }
-
             }
         }
     }

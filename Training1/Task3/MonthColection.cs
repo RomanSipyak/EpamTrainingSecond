@@ -15,12 +15,21 @@ namespace Trainig1.Task3
 
         public static string GetMonthByNumber(uint numberOfMonth)
         {
-            if (numberOfMonth >= 0 && numberOfMonth <= 12)
+            try
             {
-                return Enum.GetName(typeof(Month), numberOfMonth - 1);
+                if (numberOfMonth > 0 && numberOfMonth <= 12)
+                {
+                    return Enum.GetName(typeof(Month), numberOfMonth - 2);
+                }
+                else
+                {
+                    throw new ArgumentOutOfRangeException("numberOfMonth", "You write wrong number");
+                }
             }
-
-            return string.Empty;
+            catch (Exception e)
+            {
+                throw e;
+            }
         }
     }
 }

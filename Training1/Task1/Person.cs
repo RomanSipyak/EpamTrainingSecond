@@ -8,24 +8,30 @@ namespace Trainig1.Task1
 {
     public struct Person
     {
+        public Person(string name, string surName, ushort yearOld)
+        {
+            this.Name = name;
+            this.SurName = surName;
+            this.YearOld = yearOld;
+        }
+
         public string Name { get; set; }
 
         public string SurName { get; set; }
 
         public ushort YearOld { get; set; }
-        
-      
-        public Person(string name, string SurName, ushort yearOld)
-        {
-            this.Name = name;
-            this.SurName = SurName;
-            this.YearOld = yearOld;
-        }
 
         public string GetElder(ushort n)
         {
-            return this.YearOld > n ? $"{Name} {SurName} older than {n}" :
-                                 $"{Name} {SurName} younger than {n}";
+            try
+            {
+                return this.YearOld > n ? $"{Name} {SurName} older than {n}" :
+                                                  $"{Name} {SurName} younger than {n}";
+            }
+            catch (Exception e)
+            {
+                throw e;
+            }
         }
     }
 }

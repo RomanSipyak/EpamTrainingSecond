@@ -32,6 +32,18 @@ namespace Training3
 
                 return stringbuilder.ToString();
             }
+            catch (ArgumentOutOfRangeException e)
+            {
+                throw e;
+            }
+            catch (ArgumentNullException e)
+            {
+                throw e;
+            }
+            catch (ArgumentException e)
+            {
+                throw e;
+            }
             catch (Exception e)
             {
                 throw e;
@@ -39,35 +51,88 @@ namespace Training3
         }
 
         public string FileWriter(FileInfo[] filesinfo)
-        {   
-            StringBuilder stringbuilder = new StringBuilder();
-            foreach (FileInfo file in filesinfo)
+        {
+            try
             {
-                stringbuilder.AppendLine($"{file.DirectoryName} ==> {file}");
-            }
+                StringBuilder stringbuilder = new StringBuilder();
+                foreach (FileInfo file in filesinfo)
+                {
+                    stringbuilder.AppendLine($"{file.DirectoryName} ==> {file}");
+                }
 
-            return stringbuilder.ToString();
+                return stringbuilder.ToString();
+            }
+            catch (ArgumentOutOfRangeException e)
+            {
+                throw e;
+            }
+            catch (ArgumentNullException e)
+            {
+                throw e;
+            }
+            catch (Exception e)
+            {
+                throw e;
+            }
         }
 
         public string SearchInString(string strings, string nameOfFile)
         {
-            StringBuilder stringbuilder = new StringBuilder();
-            string[] liness = Regex.Split(strings, "\r\n");
-            Regex regex = new Regex(@"\w*" + nameOfFile + @"\w*", RegexOptions.IgnoreCase);
-            foreach (string line in liness)
+            try
             {
-                if (regex.IsMatch(line))
+                StringBuilder stringbuilder = new StringBuilder();
+                string[] liness = Regex.Split(strings, "\r\n");
+                Regex regex = new Regex(@"\w*" + nameOfFile + @"\w*", RegexOptions.IgnoreCase);
+                foreach (string line in liness)
                 {
-                    stringbuilder.AppendLine($"We find your file in ==>{line.Replace("\r", "").Replace("\n", "")}");
+                    if (regex.IsMatch(line))
+                    {
+                        stringbuilder.AppendLine($"We find your file in ==>{line.Replace("\r", "").Replace("\n", "")}");
+                    }
                 }
-            }
 
-            return stringbuilder.ToString();
+                return stringbuilder.ToString();
+            }
+            catch (ArgumentOutOfRangeException e)
+            {
+                throw e;
+            }
+            catch (ArgumentNullException e)
+            {
+                throw e;
+            }
+            catch (ArgumentException e)
+            {
+                throw e;
+            }
+            catch (Exception e)
+            {
+                throw e;
+            }
         }
 
         public string SearchByRootPath(string pathForDirectory, string nameOfFile)
         {
-            return this.SearchInString(this.ShowerDirectoryAndFiles(pathForDirectory, new StringBuilder()), nameOfFile);
+            try
+            {
+                return this.SearchInString(this.ShowerDirectoryAndFiles(pathForDirectory, new StringBuilder()), nameOfFile);
+            }
+            catch (ArgumentOutOfRangeException e)
+            {
+                throw e;
+            }
+            catch (ArgumentNullException e)
+            {
+                throw e;
+            }
+            catch (ArgumentException e)
+            {
+                throw e;
+            }
+            catch (Exception e)
+            {
+                throw e;
+            }
         }
     }
 }

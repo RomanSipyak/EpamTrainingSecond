@@ -28,6 +28,10 @@ namespace Training2.Task1._3._5
             {
                 return arrayOfNumber[index];
             }
+            catch (IndexOutOfRangeException e)
+            {
+                throw e;
+            }
             catch (Exception e)
             {
                 throw e;
