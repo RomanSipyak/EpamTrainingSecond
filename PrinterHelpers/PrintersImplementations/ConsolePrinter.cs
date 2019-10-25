@@ -12,5 +12,9 @@ namespace PrinterHelpers.PrintersImplementations
         {
             Console.WriteLine(str);
         }
+        public void Write(string str)
+        {
+            Console.Write(str);
+        }
     }
 }
