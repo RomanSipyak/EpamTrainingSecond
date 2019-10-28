@@ -51,6 +51,7 @@
     <Compile Include="RunImplementations\Training3\RunnerForAllTasks.cs" />
     <Compile Include="RunImplementations\Training5\RunImplementationForSerializerCar.cs" />
     <Compile Include="RunImplementations\Training6\ReflectionImplementation.cs" />
+    <Compile Include="RunImplementations\Training7\CircleAndRectangleRunImplementation.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
@@ -79,6 +80,10 @@
     <ProjectReference Include="..\Training5\Training5.csproj">
       <Project>{f8cfa74d-e5ca-4320-a5d7-fe93040c4723}</Project>
       <Name>Training5</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Training7\Training7.csproj">
+      <Project>{a3d61407-b347-482c-b2cc-cc98ef51500b}</Project>
+      <Name>Training7</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
