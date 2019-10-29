@@ -1,11 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Trainig1.Task4
+﻿namespace Trainig1.Task4
 {
+    using System;
+
     public enum Colors
     {
         Red = 4, Green = 115, Blue = 0, Grey = 33, Yellow = 15, Black = 2

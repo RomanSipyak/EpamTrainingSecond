@@ -1,14 +1,14 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿// <copyright file="MonthColection.cs" company="PlaceholderCompany">
+// Copyright (c) PlaceholderCompany. All rights reserved.
+// </copyright>
 
 namespace Trainig1.Task3
 {
+    using System;
+
     public class MonthColection
     {
-        enum Month
+        public enum Month
         {
             January, February, March, April, May, June, July, August, September, October, November, December
         }

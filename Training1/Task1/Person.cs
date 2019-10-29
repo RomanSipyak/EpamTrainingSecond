@@ -1,11 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Trainig1.Task1
+﻿namespace Trainig1.Task1
 {
+    using System;
+
     public struct Person
     {
         public Person(string name, string surName, ushort yearOld)
@@ -25,8 +21,8 @@ namespace Trainig1.Task1
         {
             try
             {
-                return this.YearOld > n ? $"{Name} {SurName} older than {n}" :
-                                                  $"{Name} {SurName} younger than {n}";
+                return this.YearOld > n ? $"{this.Name} {this.SurName} older than {n}" :
+                                                  $"{this.Name} {this.SurName} younger than {n}";
             }
             catch (Exception e)
             {

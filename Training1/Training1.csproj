@@ -47,9 +47,15 @@
     <Compile Include="Task2\ISize.cs" />
     <Compile Include="Task2\Rectangle.cs" />
     <Compile Include="Task3\MonthColection.cs" />
-    <Compile Include="Task4\Colors.cs" />
+    <Compile Include="Task4\Enum{T}.cs" />
     <Compile Include="Task5\LongRangeTask.cs" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Analyzer Include="..\packages\StyleCop.Analyzers.1.1.118\analyzers\dotnet\cs\StyleCop.Analyzers.CodeFixes.dll" />
+    <Analyzer Include="..\packages\StyleCop.Analyzers.1.1.118\analyzers\dotnet\cs\StyleCop.Analyzers.dll" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
