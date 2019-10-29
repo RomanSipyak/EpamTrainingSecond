@@ -1,17 +1,18 @@
-﻿using Newtonsoft.Json;
-using System;
-using System.Collections.Generic;
-using System.Configuration;
-using System.IO;
-using System.Linq;
-using System.Runtime.Serialization.Formatters.Binary;
-using System.Text;
-using System.Threading.Tasks;
-using System.Xml.Serialization;
+﻿// <copyright file="Car.cs" company="PlaceholderCompany">
+// Copyright (c) PlaceholderCompany. All rights reserved.
+// </copyright>
 
 namespace Training5.Task1
 {
-    public class CarSerializator : Iserializer<Car>
+    using System;
+    using System.Collections.Generic;
+    using System.Configuration;
+    using System.IO;
+    using System.Runtime.Serialization.Formatters.Binary;
+    using System.Xml.Serialization;
+    using Newtonsoft.Json;
+
+    public class CarSerializator : ISerializer<Car>
     {
         public string BinaryPath { get; set; } = ConfigurationManager.AppSettings["BinaryPath"].ToString();
 

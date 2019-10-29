@@ -1,13 +1,12 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Runtime.Serialization.Formatters.Binary;
-using System.Text;
-using System.Threading.Tasks;
+﻿// <copyright file="Iserializer.cs" company="PlaceholderCompany">
+// Copyright (c) PlaceholderCompany. All rights reserved.
+// </copyright>
 
 namespace Training5
 {
-   public interface Iserializer<T>
+    using System.Collections.Generic;
+
+    public interface ISerializer<T>
     {
         List<T> DeserializeForBinary();
 
