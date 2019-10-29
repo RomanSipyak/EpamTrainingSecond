@@ -1,13 +1,13 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Configuration;
-using System.IO;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿// <copyright file="FileLogger.cs" company="PlaceholderCompany">
+// Copyright (c) PlaceholderCompany. All rights reserved.
+// </copyright>
 
 namespace Logger
 {
+    using System;
+    using System.Configuration;
+    using System.IO;
+
     public class FileLogger : ILogger
     {
         public string PathOfFile { get; set; } = ConfigurationManager.AppSettings["PathToLog"].ToString();

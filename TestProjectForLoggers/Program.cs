@@ -1,15 +1,12 @@
-﻿using Logger;
-using System;
-using System.Collections.Generic;
-using System.IO;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Configuration;
-using Training5.Task1;
+﻿// <copyright file="Program.cs" company="PlaceholderCompany">
+// Copyright (c) PlaceholderCompany. All rights reserved.
+// </copyright>
 
 namespace TestProjectForLoggers
 {
+    using System;
+    using Logger;
+
     public class Program
     {
         private static readonly NLog.Logger Nlogger = NLog.LogManager.GetCurrentClassLogger();
@@ -28,7 +25,7 @@ namespace TestProjectForLoggers
             mylogger.SrcLogger.WriteMessage(new Exception());
             mylogger.SrcLogger.ReadMessage();
             ////MyLog gerFile
-            ////TestNlog 
+            ////TestNlog
             try
             {
                 Nlogger.Info("Hello world");
@@ -39,7 +36,7 @@ namespace TestProjectForLoggers
             {
                 Nlogger.Error(ex, "Goodbye cruel world");
             }
-            ////TestNlog 
+            ////TestNlog
             Console.ReadKey();
         }
     }

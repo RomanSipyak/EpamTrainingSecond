@@ -1,16 +1,16 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Configuration;
-using System.Data.SqlClient;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿// <copyright file="DataBaseLogger.cs" company="PlaceholderCompany">
+// Copyright (c) PlaceholderCompany. All rights reserved.
+// </copyright>
 
 namespace Logger
 {
-   public class DataBaseLogger : ILogger
+    using System;
+    using System.Configuration;
+    using System.Data.SqlClient;
+
+    public class DataBaseLogger : ILogger
     {
-       public string StringConnection { get; set; } = ConfigurationManager.ConnectionStrings["StringConnection"].ToString();
+        public string StringConnection { get; set; } = ConfigurationManager.ConnectionStrings["StringConnection"].ToString();
 
         public void ReadMessage()
         {
@@ -51,7 +51,7 @@ namespace Logger
                 SqlParameter exceptionParams = new SqlParameter
                 {
                     ParameterName = "@ExeptionMessage",
-                    Value = e.Message
+                    Value = e.Message,
                 };
                 command.Parameters.Add(exceptionParams);
                 var result = command.ExecuteScalar();

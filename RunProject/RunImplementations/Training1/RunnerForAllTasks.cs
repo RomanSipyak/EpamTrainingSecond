@@ -1,10 +1,7 @@
 ﻿using PrinterHelpers;
 using PrinterHelpers.PrintersImplementations;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+
 using Trainig1.Task1;
 using Trainig1.Task3;
 using Trainig1.Task4;

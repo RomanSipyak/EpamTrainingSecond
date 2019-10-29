@@ -7,34 +7,12 @@ using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Training7;
 using Training7.FolderTaskVariant2;
 using Training7.FolderWithFigures;
 
 namespace RunProject.RunImplementations.Training7
 {
-    public class FileNameComparer : IEqualityComparer<FileInfo>
-    {
-        public bool Equals(FileInfo x, FileInfo y)
-        {
-            if (x == y)
-            {
-                return true;
-            }
-
-            if (x == null || y == null)
-            {
-                return false;
-            }
-
-            return string.Equals(x.Name, y.Name, StringComparison.OrdinalIgnoreCase);
-        }
-
-        public int GetHashCode(FileInfo obj)
-        {
-            return obj.Name.GetHashCode();
-        }
-    }
-
     public class CircleAndRectangleRunImplementation : IRun
     {
 
@@ -108,6 +86,8 @@ namespace RunProject.RunImplementations.Training7
                 showerDirectory.ExpectDirectory();
                 myTimer.Stop();
                 Printer.Writeline($"time taken: {+myTimer.Elapsed}");
+                ExcelTest ecxel = new ExcelTest();
+                ecxel.Write();
                 return true;
             }
 
@@ -117,8 +97,6 @@ namespace RunProject.RunImplementations.Training7
                 Console.ReadKey();
                 return false;
             }
-
-
         }
     }
 }

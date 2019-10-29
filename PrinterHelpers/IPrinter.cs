@@ -1,15 +1,13 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using PrinterHelpers.PrintersImplementations;
+﻿// <copyright file="IPrinter.cs" company="PlaceholderCompany">
+// Copyright (c) PlaceholderCompany. All rights reserved.
+// </copyright>
 
 namespace PrinterHelpers
 {
-   public interface IPrinter
+    public interface IPrinter
     {
         void Writeline(string str);
+
         void Write(string v);
     }
 }
