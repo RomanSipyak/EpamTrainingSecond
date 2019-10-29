@@ -1,6 +1,7 @@
 ﻿using Logger;
 using PrinterHelpers;
 using PrinterHelpers.PrintersImplementations;
+using RunProject.RunImplementations.Training8;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -24,6 +25,7 @@ namespace RunProject
                 menu.Add("T5TaskAll", new RunImplementations.Training5.RunImplementationForSerializerCar(new ConsolePrinter()));
                 menu.Add("T6TaskAll", new RunImplementations.Training6.ReflectionImplementation(new ConsolePrinter()));
                 menu.Add("T7TaskAll", new RunImplementations.Training7.CircleAndRectangleRunImplementation(new ConsolePrinter()));
+                menu.Add("T8TaskAll", new RunCalc());
                 bool exit = true;
                 do
                 {
@@ -34,6 +36,7 @@ namespace RunProject
                     Console.WriteLine("If you want to run Training5 AllTask write T5TaskAll ");
                     Console.WriteLine("If you want to run Training6 AllTask write T6TaskAll ");
                     Console.WriteLine("If you want to run Training6 AllTask write T7TaskAll ");
+                    Console.WriteLine("If you want to run Training6 AllTask write T8TaskAll ");
                     string key = Console.ReadLine();
 
                     if (menu.ContainsKey(key))

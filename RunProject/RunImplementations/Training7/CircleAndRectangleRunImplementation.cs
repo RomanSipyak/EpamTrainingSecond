@@ -22,12 +22,12 @@ namespace RunProject.RunImplementations.Training7
         {
             Printer = printer;
         }
+
         public bool Run()
         {
             try
             {
-                Stopwatch myTimer = new Stopwatch();
-                myTimer.Start();
+
                 ////Circle Work
                 Printer.Writeline("////////////Work with rectangles////////////");
                 Cirlce circle1 = new Cirlce(new Point(1, 1), new Point(2, 1));
@@ -81,13 +81,15 @@ namespace RunProject.RunImplementations.Training7
                 }
                 Console.ReadKey();
                 Printer.Writeline("//////////////////////");
+                Stopwatch myTimer = new Stopwatch();
+                myTimer.Start();
                 showerDirectory.SymmetricalDifference();
                 showerDirectory.Intersection();
                 showerDirectory.ExpectDirectory();
                 myTimer.Stop();
                 Printer.Writeline($"time taken: {+myTimer.Elapsed}");
-                ExcelTest ecxel = new ExcelTest();
-                ecxel.Write();
+                //ExcelTest ecxel = new ExcelTest();
+                //ecxel.Write();
                 return true;
             }
 

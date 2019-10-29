@@ -17,6 +17,7 @@ namespace RunProject.RunImplementations.Training1
         {
             Printer = printer;
         }
+
         public bool Run()
         {
             Person person = new Person("Roma", "Sypiak", 21);
