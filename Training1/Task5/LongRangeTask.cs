@@ -1,14 +1,13 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿// <copyright file="LongRangeTask.cs" company="PlaceholderCompany">
+// Copyright (c) PlaceholderCompany. All rights reserved.
+// </copyright>
 
 namespace Trainig1.Task5
 {
     public enum LongRange : long
     {
-        Max = 9223372036854775807, Min = -9223372036854775808
+        Max = 9223372036854775807,
+        Min = -9223372036854775808,
     }
 
     public static class LongRangeTask

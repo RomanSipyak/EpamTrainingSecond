@@ -1,13 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.IO;
-using System.Linq;
-using System.Text;
-using System.Text.RegularExpressions;
-using System.Threading.Tasks;
-
-namespace Training3
+﻿namespace Training3
 {
+    using System;
+    using System.IO;
+    using System.Text;
+    using System.Text.RegularExpressions;
+
     public class ShowerDirectory : IOperations
     {
         public string ShowerDirectoryAndFiles(string path, StringBuilder stringbuilder)

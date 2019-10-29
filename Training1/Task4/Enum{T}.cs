@@ -7,7 +7,8 @@
         Red = 4, Green = 115, Blue = 0, Grey = 33, Yellow = 15, Black = 2
     }
 
-    public class Enum<T> where T : struct, IConvertible
+    public class Enum<T>
+        where T : struct, IConvertible
     {
         public static System.Array SortedValues
         {

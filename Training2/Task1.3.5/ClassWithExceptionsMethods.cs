@@ -1,12 +1,12 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Runtime.CompilerServices;
-using System.Text;
-using System.Threading.Tasks;
+﻿// <copyright file="ClassWithExceptionsMethods.cs" company="PlaceholderCompany">
+// Copyright (c) PlaceholderCompany. All rights reserved.
+// </copyright>
 
 namespace Training2.Task1._3._5
 {
+    using System;
+    using System.Runtime.CompilerServices;
+
     public class ClassWithExceptionsMethods
     {
         public static int FibonachiWithExeption(int number)
