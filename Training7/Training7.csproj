@@ -46,6 +46,11 @@
     <Compile Include="Cirlce.cs" />
     <Compile Include="FolderTaskVariant2\FileNameComparer.cs" />
     <Compile Include="FolderTaskVariant2\ShowerDirectory.cs" />
+    <Compile Include="FolderWithFigures\Circle.cs" />
+    <Compile Include="FolderWithFigures\IFigure{T}.cs" />
+    <Compile Include="FolderWithFigures\Point.cs" />
+    <Compile Include="FolderWithFigures\Rectangle.cs" />
+    <Compile Include="FolderWithFigures\VectorOperations.cs" />
     <Compile Include="IFigure{T}.cs" />
     <Compile Include="Point.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
