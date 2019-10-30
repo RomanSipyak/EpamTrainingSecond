@@ -1,10 +1,4 @@
-﻿using PrinterHelpers;
-using PrinterHelpers.PrintersImplementations;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System;
 using Training8;
 
 namespace RunProject.RunImplementations.Training8
@@ -27,7 +21,7 @@ namespace RunProject.RunImplementations.Training8
                 calculatorFile.SimpleOperations(Carculator.Operations.Plus);
                 return true;
             }
-            catch(Exception e)
+            catch (Exception e)
             {
                 Console.WriteLine(e);
                 Console.ReadKey();

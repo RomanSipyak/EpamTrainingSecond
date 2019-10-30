@@ -1,9 +1,11 @@
-﻿namespace Training7.FolderTaskVariant2.WritersDerectoty
-{
-    using System;
-    using System.Diagnostics;
-    using System.IO;
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 
+namespace Training7.FolderTaskVariant2.WritersDerectoty
+{
     public class WriterToConsole : IWriterDerectory
     {
         public WriterToConsole(ShowerDirectory showerDerectoryInstance)

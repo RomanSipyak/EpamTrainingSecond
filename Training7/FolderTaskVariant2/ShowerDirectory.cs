@@ -11,6 +11,23 @@ namespace Training7.FolderTaskVariant2
 
     public class ShowerDirectory
     {
+        public delegate void Output();
+
+        private Output outputMethods;
+
+        public Output OutputMethods
+        {
+            get
+            {
+                return outputMethods;
+            }
+
+            set
+            {
+                outputMethods += value;
+            }
+        }
+
         public HashSet<FileInfo> DirectoryInfo1 { get; private set; }
 
         public HashSet<FileInfo> DirectoryInfo2 { get; private set; }

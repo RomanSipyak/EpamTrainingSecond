@@ -9,6 +9,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Training7;
 using Training7.FolderTaskVariant2;
+using Training7.FolderTaskVariant2.WritersDerectoty;
 using Training7.FolderWithFigures;
 
 namespace RunProject.RunImplementations.Training7
@@ -61,31 +62,15 @@ namespace RunProject.RunImplementations.Training7
                 ////Rectangle Work
                 Printer.Writeline("////////////Work with Derictories////////////");
                 ShowerDirectory showerDirectory = new ShowerDirectory();
-                HashSet<FileInfo> symmetricalDifference = showerDirectory.SymmetricalDifference();
-                foreach (FileInfo res in symmetricalDifference)
-                {
-                    Printer.Writeline($"{ res.Name}");
-                }
-
-                HashSet<FileInfo> intersection = showerDirectory.Intersection();
-                Printer.Writeline("//////////////////////");
-                foreach (FileInfo res in intersection)
-                {
-                    Printer.Writeline($"{res.Name}");
-                }
-                HashSet<FileInfo> expectDirectory = showerDirectory.ExpectDirectory();
-                Printer.Writeline("//////////////////////");
-                foreach (FileInfo res in expectDirectory)
-                {
-                    Printer.Writeline($"{res.Name}");
-                }
-                Console.ReadKey();
-                Printer.Writeline("//////////////////////");
                 Stopwatch myTimer = new Stopwatch();
                 myTimer.Start();
                 showerDirectory.SymmetricalDifference();
                 showerDirectory.Intersection();
                 showerDirectory.ExpectDirectory();
+                WriterToConsole writerToConsole = new WriterToConsole(showerDirectory);
+                writerToConsole.SymmetricalDifference();
+                writerToConsole.Intersection();
+                writerToConsole.ExpectDirectory();
                 myTimer.Stop();
                 Printer.Writeline($"time taken: {+myTimer.Elapsed}");
                 //ExcelTest ecxel = new ExcelTest();
