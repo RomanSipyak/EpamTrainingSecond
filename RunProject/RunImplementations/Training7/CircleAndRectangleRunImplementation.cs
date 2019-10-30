@@ -68,9 +68,11 @@ namespace RunProject.RunImplementations.Training7
                 showerDirectory.Intersection();
                 showerDirectory.ExpectDirectory();
                 WriterToConsole writerToConsole = new WriterToConsole(showerDirectory);
+                WriterToExcel writerToExcel = new WriterToExcel(showerDirectory);
                 writerToConsole.SymmetricalDifference();
                 writerToConsole.Intersection();
                 writerToConsole.ExpectDirectory();
+                writerToExcel.SymmetricalDifference();
                 myTimer.Stop();
                 Printer.Writeline($"time taken: {+myTimer.Elapsed}");
                 //ExcelTest ecxel = new ExcelTest();
