@@ -1,11 +1,14 @@
 ﻿namespace Training7.FolderTaskVariant2.WritersDerectoty
 {
     using System;
+    using System.Collections.Generic;
     using System.Diagnostics;
     using System.IO;
 
     public class WriterToConsole : IWriterDerectory
     {
+        private delegate HashSet<FileInfo> DirectoryOperation();
+
         public WriterToConsole(ShowerDirectory showerDerectoryInstance)
         {
             this.ShowerDerectoryInstance = showerDerectoryInstance;
@@ -15,47 +18,32 @@
 
         public void ExpectDirectory()
         {
-            Console.WriteLine("<////////////////ExpectDirectory////////////////>");
-            Stopwatch myTimer = new Stopwatch();
-            myTimer.Start();
-            Console.WriteLine($"Count files in ExpectSet {this.ShowerDerectoryInstance.ExpectDirectory().Count}");
-            foreach (FileInfo info in this.ShowerDerectoryInstance.ExpectDirectory())
-            {
-                Console.WriteLine("FullPath ==> {0}, FileName ==> {1}", info.FullName, info.Name);
-            }
-
-            Console.WriteLine($"time taken: {+myTimer.Elapsed}");
-            Console.WriteLine("^////////////////ExpectDirectory////////////////^");
+            this.WriteToConsole(this.ShowerDerectoryInstance.ExpectDirectory);
         }
 
         public void Intersection()
         {
-            Console.WriteLine("<////////////////Intersection////////////////>");
-            Stopwatch myTimer = new Stopwatch();
-            myTimer.Start();
-            Console.WriteLine($"Count files in ExpectSet {this.ShowerDerectoryInstance.Intersection().Count}");
-            foreach (FileInfo info in this.ShowerDerectoryInstance.Intersection())
-            {
-                Console.WriteLine("FullPath ==> {0}, FileName ==> {1}", info.FullName, info.Name);
-            }
-
-            Console.WriteLine($"time taken: {+myTimer.Elapsed}");
-            Console.WriteLine("^////////////////Intersection////////////////^");
+            this.WriteToConsole(this.ShowerDerectoryInstance.Intersection);
         }
 
         public void SymmetricalDifference()
         {
-            Console.WriteLine("<////////////////SymmetricalDifference////////////////>");
+            this.WriteToConsole(this.ShowerDerectoryInstance.SymmetricalDifference);
+        }
+
+        private void WriteToConsole(DirectoryOperation operation)
+        {
+            Console.WriteLine($"<////////////////{operation.Method.Name}////////////////>");
             Stopwatch myTimer = new Stopwatch();
             myTimer.Start();
-            Console.WriteLine($"Count files in ExpectSet {this.ShowerDerectoryInstance.SymmetricalDifference().Count}");
-            foreach (FileInfo info in this.ShowerDerectoryInstance.SymmetricalDifference())
+            Console.WriteLine($"Count files in ExpectSet {operation().Count}");
+            foreach (FileInfo info in operation())
             {
                 Console.WriteLine("FullPath ==> {0}, FileName ==> {1}", info.FullName, info.Name);
             }
 
             Console.WriteLine($"time taken: {+myTimer.Elapsed}");
-            Console.WriteLine("^////////////////SymmetricalDifference////////////////^");
+            Console.WriteLine($"^////////////////{operation.Method.Name}////////////////^");
         }
     }
 }

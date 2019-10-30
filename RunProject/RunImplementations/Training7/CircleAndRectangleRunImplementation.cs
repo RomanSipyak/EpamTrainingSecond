@@ -73,6 +73,8 @@ namespace RunProject.RunImplementations.Training7
                 writerToConsole.Intersection();
                 writerToConsole.ExpectDirectory();
                 writerToExcel.SymmetricalDifference();
+                writerToExcel.Intersection();
+                writerToExcel.ExpectDirectory();
                 myTimer.Stop();
                 Printer.Writeline($"time taken: {+myTimer.Elapsed}");
                 //ExcelTest ecxel = new ExcelTest();
