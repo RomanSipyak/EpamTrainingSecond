@@ -18,7 +18,7 @@ namespace RunProject.RunImplementations.Training7
     public class CircleAndRectangleRunImplementation : IRun
     {
 
-        public IPrinter Printer { get; set; } = new ConsolePrinter();
+        public IPrinter Printer { get; set; } = new PrinterHelpers.PrintersImplementations.ConsolePrinter();
 
         public CircleAndRectangleRunImplementation(IPrinter printer)
         {
@@ -79,7 +79,7 @@ namespace RunProject.RunImplementations.Training7
                 myTimer.Stop();
                 Printer.Writeline($"time taken: {+myTimer.Elapsed}");
                 ListsComparer a = new ListsComparer();
-                a.ReadValues();
+                a.CompareAndPrintUniqueValues();
                 //ExcelTest ecxel = new ExcelTest();
                 //ecxel.Write();
                 return true;

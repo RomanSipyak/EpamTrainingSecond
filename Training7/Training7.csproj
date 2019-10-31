@@ -71,6 +71,9 @@
     <Compile Include="FolderWithFigures\Rectangle.cs" />
     <Compile Include="FolderWithFigures\VectorOperations.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="TaskVariant1\ConsolePrinter.cs" />
+    <Compile Include="TaskVariant1\FilePrinter.cs" />
+    <Compile Include="TaskVariant1\IWriter.cs" />
     <Compile Include="TaskVariant1\ListsComparer.cs" />
   </ItemGroup>
   <ItemGroup>
