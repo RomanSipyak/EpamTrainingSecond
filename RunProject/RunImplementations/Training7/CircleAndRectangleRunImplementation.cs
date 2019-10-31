@@ -11,6 +11,7 @@ using Training7;
 using Training7.FolderTaskVariant2;
 using Training7.FolderTaskVariant2.WritersDerectoty;
 using Training7.FolderWithFigures;
+using Training7.TaskVariant1;
 
 namespace RunProject.RunImplementations.Training7
 {
@@ -77,6 +78,8 @@ namespace RunProject.RunImplementations.Training7
                 writerToExcel.ExpectDirectory();
                 myTimer.Stop();
                 Printer.Writeline($"time taken: {+myTimer.Elapsed}");
+                ListsComparer a = new ListsComparer();
+                a.ReadValues();
                 //ExcelTest ecxel = new ExcelTest();
                 //ecxel.Write();
                 return true;
