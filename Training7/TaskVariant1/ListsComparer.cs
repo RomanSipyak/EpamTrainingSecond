@@ -1,66 +1,82 @@
 ﻿using NPOI.SS.UserModel;
 using NPOI.XSSF.UserModel;
-using NPOI.XWPF.UserModel;
 using System;
 using System.Collections.Generic;
 using System.Configuration;
-using System.Diagnostics;
 using System.IO;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Training7.TaskVariant1
 {
     public class ListsComparer
     {
-        private FileStream sw = null;
+        private FileStream fileStream = null;
 
         public void CompareAndPrintUniqueValues()
         {
-            if (ConfigurationManager.AppSettings["TargetForUniqueValues"].ToString().Equals("ConsolePrinter"))
+            try
             {
-                new ConsolePrinter().Print(this.UniqueValues(this.ReadValues()));
-            }
+                if (ConfigurationManager.AppSettings["TargetForUniqueValues"].ToString().Equals("ConsolePrinter"))
+                {
+                    new ConsolePrinter().Print(this.UniqueValues(this.ReadValues()));
+                }
 
-            if (ConfigurationManager.AppSettings["TargetForUniqueValues"].ToString().Equals("FilePrinter"))
+                if (ConfigurationManager.AppSettings["TargetForUniqueValues"].ToString().Equals("FilePrinter"))
+                {
+                    new FilePrinter().Print(this.UniqueValues(this.ReadValues()));
+                }
+            }
+            catch (ConfigurationErrorsException e)
             {
-                new FilePrinter().Print(this.UniqueValues(this.ReadValues()));
+                throw e;
+            }
+            catch (Exception e)
+            {
+                throw e;
             }
         }
 
-
-
         public List<string> UniqueValues(List<string> listvalues)
         {
-            var g = listvalues.GroupBy(i => i).ToList();
-            g.RemoveAll(RemoveRepeat);
-            listvalues.Clear();
-            foreach (var grp in g)
+            try
             {
-                listvalues.Add(grp.Key);
-                Console.WriteLine("{0} {1}", grp.Key, grp.Count());
+                var g = listvalues.GroupBy(i => i).ToList();
+                g.RemoveAll(this.RemoveRepeat);
+                listvalues.Clear();
+                foreach (var grp in g)
+                {
+                    listvalues.Add(grp.Key);
+                }
+
+                return listvalues;
             }
-            return listvalues;
+            catch (ArgumentNullException e)
+            {
+                throw e;
+            }
+            catch (Exception e)
+            {
+                throw e;
+            }
         }
 
         public List<string> ReadValues()
         {
-            //Console.WriteLine("aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa");
             try
             {
+                string pathToFileWithLists = ConfigurationManager.AppSettings["PathToFileWithLists"].ToString();
                 XSSFWorkbook workbook;
-                if (File.Exists("C:\\Users\\GOOD\\Desktop\\test.xls"))
+                if (File.Exists(pathToFileWithLists))
                 {
-                    sw = new FileStream("C:\\Users\\GOOD\\Desktop\\test.xls", FileMode.Open, FileAccess.ReadWrite);
-                    workbook = new XSSFWorkbook(sw);
-                    sw.Close();
+                    this.fileStream = new FileStream(pathToFileWithLists, FileMode.Open, FileAccess.ReadWrite);
+                    workbook = new XSSFWorkbook(this.fileStream);
+                    this.fileStream.Close();
                 }
                 else
                 {
-                    sw = new FileStream("C:\\Users\\GOOD\\Desktop\\test.xls", FileMode.Create, FileAccess.ReadWrite);
-                    workbook = new XSSFWorkbook(sw);
-                    sw.Close();
+                    this.fileStream = new FileStream(pathToFileWithLists, FileMode.Create, FileAccess.ReadWrite);
+                    workbook = new XSSFWorkbook(this.fileStream);
+                    this.fileStream.Close();
                 }
 
                 ISheet sheet = null;
@@ -80,17 +96,12 @@ namespace Training7.TaskVariant1
                                 for (int k = 0; k < collumsKays.Length; k++)
                                 {
                                     var cell = row.GetCell(Convert.ToInt32(collumsKays[k]));
-                                    //Console.Write("{0}\t", cell);
-                                    //Console.Write("{0}\t", workbook.GetSheetName(i));
-                                    //Console.Write("{0}\t", Convert.ToInt32(collumsKays[k]));
                                     if (cell != null)
                                     {
                                         cell.SetCellType(CellType.String);
-                                        //Console.Write("{0}\t", cell.StringCellValue);
                                         listValues.Add(cell.StringCellValue);
                                     }
                                 }
-                                //Console.WriteLine();
                             }
                         }
                     }
@@ -98,15 +109,27 @@ namespace Training7.TaskVariant1
 
                 return listValues;
             }
+            catch (ConfigurationErrorsException e)
+            {
+                throw e;
+            }
+            catch (NullReferenceException e)
+            {
+                throw e;
+            }
+            catch (ArgumentException e)
+            {
+                throw e;
+            }
             catch (Exception e)
             {
                 throw e;
             }
             finally
             {
-                if (sw != null)
+                if (this.fileStream != null)
                 {
-                    sw.Close();
+                    this.fileStream.Close();
                 }
             }
         }

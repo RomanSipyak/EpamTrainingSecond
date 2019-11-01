@@ -1,19 +1,14 @@
-﻿
-using NPOI.SS.UserModel;
+﻿using NPOI.SS.UserModel;
 using NPOI.XSSF.UserModel;
 using System;
 using System.Collections.Generic;
-using System.Diagnostics;
 using System.IO;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Training7.FolderTaskVariant2.WritersDerectoty
 {
     public class WriterToExcel : IWriterDerectory
     {
-        private FileStream sw = null;
+        private FileStream fileStream = null;
 
         private delegate HashSet<FileInfo> DirectoryOperation();
 
@@ -43,23 +38,21 @@ namespace Training7.FolderTaskVariant2.WritersDerectoty
         {
             try
             {
-                Console.WriteLine("aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa");
-
                 var workbook = new XSSFWorkbook();
                 if (File.Exists("C:\\Users\\GOOD\\Desktop\\test.xls"))
                 {
-                    sw = new FileStream("C:\\Users\\GOOD\\Desktop\\test.xls", FileMode.Open, FileAccess.Read, FileShare.ReadWrite );
-                    workbook = new XSSFWorkbook(sw);
-                    sw.Close();
+                    this.fileStream = new FileStream("C:\\Users\\GOOD\\Desktop\\test.xls", FileMode.Open, FileAccess.Read, FileShare.ReadWrite );
+                    workbook = new XSSFWorkbook(this.fileStream);
+                    this.fileStream.Close();
                 }
                 else
                 {
-                    sw = new FileStream("C:\\Users\\GOOD\\Desktop\\test.xls", FileMode.Create, FileAccess.ReadWrite);
-                    sw.Close();
+                    this.fileStream = new FileStream("C:\\Users\\GOOD\\Desktop\\test.xls", FileMode.Create, FileAccess.ReadWrite);
+                    this.fileStream.Close();
                     workbook = new XSSFWorkbook();
                 }
 
-                //sw = new FileStream("C:\\Users\\GOOD\\Desktop\\test.xls", FileMode.Create, FileAccess.ReadWrite);
+                //this.fileStream = new FileStream("C:\\Users\\GOOD\\Desktop\\test.xls", FileMode.Create, FileAccess.ReadWrite);
 
                 ISheet sheet = null;
                 bool notContain = true;
@@ -85,8 +78,9 @@ namespace Training7.FolderTaskVariant2.WritersDerectoty
                 {
                     if (File.Exists("C:\\Users\\GOOD\\Desktop\\test.xls"))
                     {
-                        sw = new FileStream("C:\\Users\\GOOD\\Desktop\\test.xls", FileMode.Open, FileAccess.Write, FileShare.ReadWrite);
+                        this.fileStream = new FileStream("C:\\Users\\GOOD\\Desktop\\test.xls", FileMode.Open, FileAccess.Write, FileShare.ReadWrite);
                     }
+
                     sheet = workbook.CreateSheet($"{operation.Method.Name}");
 
                     var row = sheet.CreateRow(0);
@@ -168,7 +162,7 @@ namespace Training7.FolderTaskVariant2.WritersDerectoty
                 }
                 sheet.AutoSizeColumn(0);
                 sheet.AutoSizeColumn(1);
-                workbook.Write(sw);
+                workbook.Write(this.fileStream);
             }
             catch (Exception e)
             {
@@ -176,9 +170,9 @@ namespace Training7.FolderTaskVariant2.WritersDerectoty
             }
             finally
             {
-                if (sw != null)
+                if (this.fileStream != null)
                 {
-                    sw.Close();
+                    this.fileStream.Close();
                 }
             }
         }
