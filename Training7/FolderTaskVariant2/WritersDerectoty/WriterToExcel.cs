@@ -2,6 +2,7 @@
 using NPOI.XSSF.UserModel;
 using System;
 using System.Collections.Generic;
+using System.Configuration;
 using System.IO;
 
 namespace Training7.FolderTaskVariant2.WritersDerectoty
@@ -38,16 +39,17 @@ namespace Training7.FolderTaskVariant2.WritersDerectoty
         {
             try
             {
+                string targetToOutput = ConfigurationManager.AppSettings["TargetToOutput"].ToString();
                 var workbook = new XSSFWorkbook();
-                if (File.Exists("C:\\Users\\GOOD\\Desktop\\test.xls"))
+                if (File.Exists(targetToOutput))
                 {
-                    this.fileStream = new FileStream("C:\\Users\\GOOD\\Desktop\\test.xls", FileMode.Open, FileAccess.Read, FileShare.ReadWrite );
+                    this.fileStream = new FileStream(targetToOutput, FileMode.Open/*, FileAccess.ReadWrite, FileShare.ReadWrite*/);
                     workbook = new XSSFWorkbook(this.fileStream);
                     this.fileStream.Close();
                 }
                 else
                 {
-                    this.fileStream = new FileStream("C:\\Users\\GOOD\\Desktop\\test.xls", FileMode.Create, FileAccess.ReadWrite);
+                    this.fileStream = new FileStream(targetToOutput, FileMode.Create);
                     this.fileStream.Close();
                     workbook = new XSSFWorkbook();
                 }
@@ -74,13 +76,13 @@ namespace Training7.FolderTaskVariant2.WritersDerectoty
                     }
                 }
 
+                if (File.Exists(targetToOutput))
+                {
+                    this.fileStream = new FileStream(targetToOutput, FileMode.Truncate/*, FileAccess.ReadWrite*/);
+                }
+
                 if (notContain)
                 {
-                    if (File.Exists("C:\\Users\\GOOD\\Desktop\\test.xls"))
-                    {
-                        this.fileStream = new FileStream("C:\\Users\\GOOD\\Desktop\\test.xls", FileMode.Open, FileAccess.Write, FileShare.ReadWrite);
-                    }
-
                     sheet = workbook.CreateSheet($"{operation.Method.Name}");
 
                     var row = sheet.CreateRow(0);
@@ -136,33 +138,68 @@ namespace Training7.FolderTaskVariant2.WritersDerectoty
                 }
                 else
                 {
-                    var row = sheet.GetRow(0);
-                    var row2 = sheet.GetRow(1);
-                    var row3 = sheet.GetRow(2);
-                    row.GetCell(0);
-                    row.GetCell(1);
-                    row2.GetCell(0);
-                    row2.GetCell(1);
-                    row3.GetCell(0).SetCellValue("FullPath");
-                    row3.GetCell(1).SetCellValue("FileName");
+                    var row = sheet.GetRow(0) == null ? sheet.CreateRow(0) : sheet.GetRow(0);
+                    var row2 = sheet.GetRow(1) == null ? sheet.CreateRow(1) : sheet.GetRow(1);
+                    var row3 = sheet.GetRow(2) == null ? sheet.CreateRow(2) : sheet.GetRow(2);
+
+                    var row3Cell0 = row3.GetCell(0) == null ? row3.CreateCell(0) : row3.GetCell(0);
+                    var row3Cell1 = row3.GetCell(1) == null ? row3.CreateCell(1) : row3.GetCell(1);
+                    row3Cell0.SetCellValue("FilePath");
+                    row3Cell1.SetCellValue("FileName");
                     ICell cell = sheet.GetRow(0).GetCell(0);
-                    cell.SetCellType(CellType.String);
-                    cell.SetCellValue($"{operation.Method.Name}");
-                    ICell cell2 = sheet.GetRow(1).GetCell(0);
-                    cell2.SetCellType(CellType.String);
-                    cell2.SetCellValue($"Count files in ExpectSet {this.ShowerDerectoryInstance.SymmetricalDifference().Count}");
+                    var row0Cell0 = row.GetCell(0) == null ? row.CreateCell(0) : row.GetCell(0);
+                    row0Cell0.SetCellValue($"{operation.Method.Name}");
+                    var row2Cell0 = row2.GetCell(0) == null ? row2.CreateCell(0) : row2.GetCell(0);
+                    row2Cell0.SetCellValue($"Count files in ExpectSet {this.ShowerDerectoryInstance.SymmetricalDifference().Count}");
                     int x = 3;
                     foreach (FileInfo info in this.ShowerDerectoryInstance.SymmetricalDifference())
                     {
-                        row = sheet.GetRow(x);
-                        row.GetCell(0).SetCellValue(info.FullName);
-                        row.GetCell(1).SetCellValue(info.Name);
+                        if (sheet.GetRow(x) == null)
+                        {
+                            row = sheet.CreateRow(x);
+                        }
+                        else
+                        {
+                            row = sheet.GetRow(x);
+                        }
+
+                        if (row.GetCell(0) != null)
+                        {
+                            row.GetCell(0).SetCellValue(info.FullName);
+                        }
+                        else
+                        {
+                            row.CreateCell(0).SetCellValue(info.FullName);
+                        }
+
+                        if (row.GetCell(1) != null)
+                        {
+                            row.GetCell(1).SetCellValue(info.Name);
+                        }
+                        else
+                        {
+                            row.CreateCell(1).SetCellValue(info.Name);
+                        }
+
                         x++;
                     }
                 }
+
                 sheet.AutoSizeColumn(0);
                 sheet.AutoSizeColumn(1);
                 workbook.Write(this.fileStream);
+            }
+            catch (ConfigurationErrorsException e)
+            {
+                throw e;
+            }
+            catch (NullReferenceException e)
+            {
+                throw e;
+            }
+            catch (ArgumentException e)
+            {
+                throw e;
             }
             catch (Exception e)
             {

@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace Training7
 {
-   public class ExcelTest
+    public class ExcelTest
     {
         Microsoft.Office.Interop.Excel.Application oXL;
         Microsoft.Office.Interop.Excel._Workbook oWB;
@@ -34,6 +34,7 @@ namespace Training7
                         row.CreateCell(j).SetCellValue(x++);
                     }
                 }
+
                 Console.WriteLine("End at " + DateTime.Now.ToString());
 
                 FileStream sw = File.Create("C:\\Users\\GOOD\\Desktop\\test.xls");
@@ -42,7 +43,7 @@ namespace Training7
 
                 Console.Read();
             }
-            catch(Exception e)
+            catch (Exception e)
             {
                 throw e;
             }

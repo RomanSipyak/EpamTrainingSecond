@@ -16,6 +16,7 @@ namespace Training7.TaskVariant1
             try
             {
                 string targetPath = ConfigurationManager.AppSettings["TargetFilePath"].ToString();
+
                 var workbook = new XSSFWorkbook();
                 if (File.Exists(targetPath))
                 {
