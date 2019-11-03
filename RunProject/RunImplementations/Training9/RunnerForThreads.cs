@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using Training9;
 
@@ -56,7 +57,7 @@ namespace RunProject.RunImplementations.Training9
                 //    }
                 //}
                 Console.WriteLine($"{separ.CalculateSum(array, 3)}");
-                Console.WriteLine($"{TreadSummarize.sum}");
+                Console.WriteLine($"{separ.sum}");
                 return true;
             }
 
