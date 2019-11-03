@@ -2,6 +2,7 @@
 using PrinterHelpers;
 using PrinterHelpers.PrintersImplementations;
 using RunProject.RunImplementations.Training8;
+using RunProject.RunImplementations.Training9;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -26,6 +27,7 @@ namespace RunProject
                 menu.Add("T6TaskAll", new RunImplementations.Training6.ReflectionImplementation(new ConsolePrinter()));
                 menu.Add("T7TaskAll", new RunImplementations.Training7.CircleAndRectangleRunImplementation(new ConsolePrinter()));
                 menu.Add("T8TaskAll", new RunCalc());
+                menu.Add("T9TaskAll", new RunnerForThreads(new ConsolePrinter()));
                 bool exit = true;
                 do
                 {
@@ -37,6 +39,7 @@ namespace RunProject
                     Console.WriteLine("If you want to run Training6 AllTask write T6TaskAll ");
                     Console.WriteLine("If you want to run Training6 AllTask write T7TaskAll ");
                     Console.WriteLine("If you want to run Training6 AllTask write T8TaskAll ");
+                    Console.WriteLine("If you want to run Training6 AllTask write T9TaskAll ");
                     string key = Console.ReadLine();
 
                     if (menu.ContainsKey(key))

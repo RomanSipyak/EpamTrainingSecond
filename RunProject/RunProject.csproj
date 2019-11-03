@@ -53,6 +53,7 @@
     <Compile Include="RunImplementations\Training6\ReflectionImplementation.cs" />
     <Compile Include="RunImplementations\Training7\CircleAndRectangleRunImplementation.cs" />
     <Compile Include="RunImplementations\Training8\RunCalc.cs" />
+    <Compile Include="RunImplementations\Training9\RunnerForThreads.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
@@ -90,6 +91,10 @@
     <ProjectReference Include="..\Training8\Training8.csproj">
       <Project>{55dc2caa-7afb-443e-947b-3dc25d538d96}</Project>
       <Name>Training8</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Training9\Training9.csproj">
+      <Project>{40b23023-889b-4ab1-8d4f-9b73a9af22ea}</Project>
+      <Name>Training9</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
