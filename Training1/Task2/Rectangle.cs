@@ -2,6 +2,8 @@
 // Copyright (c) PlaceholderCompany. All rights reserved.
 // </copyright>
 
+using System;
+
 namespace Trainig1.Task2
 {
     public struct Rectangle : ISize, ICoordinates
@@ -22,8 +24,13 @@ namespace Trainig1.Task2
 
         public int Y { get; set; }
 
-        double ISize.Perimetr()
+        public double Perimetr()
         {
+            if (this.Height <= 0 || this.Width <= 0)
+            {
+                throw new ArgumentException("Parameter should be more than 0");
+            }
+
             return 2 * (this.Height + this.Width);
         }
     }

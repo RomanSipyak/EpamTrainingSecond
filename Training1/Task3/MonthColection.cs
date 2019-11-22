@@ -19,7 +19,7 @@ namespace Trainig1.Task3
             {
                 if (numberOfMonth > 0 && numberOfMonth <= 12)
                 {
-                    return Enum.GetName(typeof(Month), numberOfMonth - 2);
+                    return Enum.GetName(typeof(Month), numberOfMonth - 1);
                 }
                 else
                 {
