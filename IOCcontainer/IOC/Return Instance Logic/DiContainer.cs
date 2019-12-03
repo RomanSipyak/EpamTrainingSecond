@@ -1,24 +1,22 @@
-﻿using IOCcontainer.IOC.Instance_Logic;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace IOCcontainer.IOC.Return_Instance_Logic
+﻿namespace IOCcontainer.IOC.Return_Instance_Logic
 {
+    using System;
+    using System.Collections.Generic;
+    using System.Linq;
+    using IOCcontainer.IOC.Instance_Logic;
+
     public class DiContainer
     {
-        public readonly List<ServiceDescriptor> _serviceDescriptors;
+        public readonly List<ServiceDescriptor> serviceDescriptors;
 
         public DiContainer( ref List<ServiceDescriptor> serviceDescriptors)
         {
-            _serviceDescriptors = serviceDescriptors;
+            this.serviceDescriptors = serviceDescriptors;
         }
 
         public object GetService(Type serviceType)
         {
-            var desciptor = _serviceDescriptors.SingleOrDefault(x => x.ServiceType == serviceType);
+            var desciptor = this.serviceDescriptors.SingleOrDefault(x => x.ServiceType == serviceType);
 
             if (desciptor == null)
             {
@@ -37,7 +35,7 @@ namespace IOCcontainer.IOC.Return_Instance_Logic
                 throw new Exception("Cannot instantiate abstract classes or interfaces");
             }
 
-            object implementation = InstanceByreflection(actualType);
+            object implementation = this.InstanceByreflection(actualType);
 
             if (desciptor.Lifetime == ServiceLifeTime.Singleton)
             {
@@ -52,7 +50,7 @@ namespace IOCcontainer.IOC.Return_Instance_Logic
             var constructorInfo = actualType.GetConstructors().First();
 
             var parameters = constructorInfo.GetParameters()
-                .Select(x => GetService(x.ParameterType)).ToArray();
+                .Select(x => this.GetService(x.ParameterType)).ToArray();
 
             var implementation = Activator.CreateInstance(actualType, parameters);
             return implementation;

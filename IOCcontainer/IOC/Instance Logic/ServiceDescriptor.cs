@@ -1,11 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace IOCcontainer.IOC.Instance_Logic
+﻿namespace IOCcontainer.IOC.Instance_Logic
 {
+    using System;
+
     public enum ServiceLifeTime
     {
         Singleton,
@@ -24,22 +20,22 @@ namespace IOCcontainer.IOC.Instance_Logic
 
         public ServiceDescriptor(object implementation, ServiceLifeTime lifetime)
         {
-            ServiceType = implementation.GetType();
-            Implementation = implementation;
-            Lifetime = lifetime;
+            this.ServiceType = implementation.GetType();
+            this.Implementation = implementation;
+            this.Lifetime = lifetime;
         }
 
         public ServiceDescriptor(Type serviceType, ServiceLifeTime lifetime)
         {
-            ServiceType = serviceType;
-            Lifetime = lifetime;
+            this.ServiceType = serviceType;
+            this.Lifetime = lifetime;
         }
 
         public ServiceDescriptor(Type serviceType, Type implementationType, ServiceLifeTime lifetime)
         {
-            ServiceType = serviceType;
-            Lifetime = lifetime;
-            ImplementationType = implementationType;
+            this.ServiceType = serviceType;
+            this.Lifetime = lifetime;
+            this.ImplementationType = implementationType;
         }
     }
 }
