@@ -11,7 +11,6 @@ namespace Training9
 
     public class TreadSummarize
     {
-        private static AutoResetEvent waitHandler = new AutoResetEvent(true);
         public double sum = 0;
         private static readonly object locker = new object();
 
@@ -23,19 +22,15 @@ namespace Training9
             {
                 Thread myThread = new Thread(new ParameterizedThreadStart(this.SumSection));
                 myThread.Start(item);
-               
+                myThread.Join();
             }
+
             return sum;
         }
 
         public void SumSection(object array)
         {
-            //waitHandler.WaitOne();
-            //try
-            //{
-            //    Monitor.Enter(locker);
-            //lock (locker)
-            //{
+
             Monitor.Enter(locker);
             for (int i = 0; i < ((double[,])array).GetLength(0); i++)
             {
@@ -45,18 +40,10 @@ namespace Training9
 
                     sum += ((double[,])array)[i, j];
                     Console.WriteLine($"Number of thread {Thread.CurrentThread.GetHashCode()} sum = {sum}");
-
                 }
             }
-            Monitor.Exit(locker);
-            //}
-            //}
-            //finally
-            //{
-            //    Monitor.Exit(locker);
-            //}
 
-            //waitHandler.Set();
+            Monitor.Exit(locker);
         }
 
         public List<double[,]> Separator(double[,] array, int k)
