@@ -23,22 +23,7 @@ namespace SchoolProject
             return AllCourses.Add(new Course(Name));
         }
 
-        public bool AddUserToCourse(Student student, String courseName)
-        {
-            Course course = new Course(courseName);
-            Course responseCourse;
-            AllCourses.TryGetValue(course, out responseCourse);
-            if (course != null)
-            {
-                throw new ArgumentException("Course already exist");
-            }
-            else
-            {
-                return AllCourses.Add(course);
-            }
-        }
-
-        public bool AddStudentToSchoot(Student student)
+        public bool AddStudentToSchool(Student student)
         {
             Student taketStudent;
             AllStudents.TryGetValue(student, out taketStudent);
@@ -62,7 +47,7 @@ namespace SchoolProject
                 return AllStudents.Add(student);
             }
         }
-
+        //TODO
         public bool AddStudentToCourse(Course course, Student student)
         {
             Course responseCourse;
@@ -79,9 +64,9 @@ namespace SchoolProject
                 BindingFlags.Instance | BindingFlags.InvokeMethod, null, responseCourse, new object[] { student });
                 return addedStudent != null;
             }
-            catch(ArgumentException e)
+            catch(Exception e)
             {
-                throw e;
+                throw e.InnerException;
             }
             
         }
@@ -101,9 +86,9 @@ namespace SchoolProject
                 BindingFlags.Instance | BindingFlags.InvokeMethod, null, responseCourse, new object[] { student });
                 return removedSrudent != null;
             }
-            catch(ArgumentException e)
+            catch(Exception e)
             {
-                throw e;
+                throw e.InnerException;
             }
         }
     }
