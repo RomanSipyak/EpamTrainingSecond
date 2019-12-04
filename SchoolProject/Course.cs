@@ -1,4 +1,5 @@
 ﻿using Comparers.SchoolProject;
+using SchoolProject.Comparers;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -13,7 +14,7 @@ namespace SchoolProject
         public Course(string nameCourcse)
         {
             this.nameCourcse = nameCourcse;
-            CourseStudents = new HashSet<Student>(new StudentComparer());
+            CourseStudents = new HashSet<Student>(new StudentComparerById());
         }
 
         private Student joinCourse(Student student)
@@ -22,7 +23,7 @@ namespace SchoolProject
             {
                 throw new ArgumentException("Student already registered in this course");
             }
-            if(CourseStudents.Count >=29)
+            if (CourseStudents.Count >= 29)
             {
                 throw new ArgumentException("Course is full");
             }
@@ -43,6 +44,17 @@ namespace SchoolProject
                 return student;
             }
             throw new Exception("Something was wrong");
+        }
+
+        public Student GetStudent(Student student)
+        {
+            Student studentForReturn;
+            CourseStudents.TryGetValue(student, out studentForReturn);
+            return studentForReturn;
+        }
+        public int GetStudentsCount()
+        {
+            return CourseStudents.Count;
         }
     }
 }

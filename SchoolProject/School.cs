@@ -8,9 +8,9 @@ namespace SchoolProject
 {
     public class School
     {
-        public readonly HashSet<Student> AllStudents;
+        private readonly HashSet<Student> AllStudents;
 
-        public readonly HashSet<Course> AllCourses;
+        private readonly HashSet<Course> AllCourses;
 
         public School()
         {
@@ -32,14 +32,14 @@ namespace SchoolProject
                 throw new ArgumentException("Student with the same id already exist");
             }
 
-            if (student.Number < 10000 || student.Number > 99999 || student.Name == null || student.Name.Trim().Equals(""))
+            if (student.Number < 10000 || student.Number > 99999)
             {
                 throw new ArgumentException("Wrong id");
             }
 
             if (student.Name == null || student.Name.Trim().Equals(""))
             {
-                throw new ArgumentException("Wrong can`t be empty");
+                throw new ArgumentException("Wrong name, can`t be empty");
             }
 
             else
@@ -47,9 +47,20 @@ namespace SchoolProject
                 return AllStudents.Add(student);
             }
         }
-        //TODO
+        
         public bool AddStudentToCourse(Course course, Student student)
         {
+            try
+            {
+                this.AddStudentToSchool(student);
+            }
+            catch (ArgumentException e)
+            {
+                if (!e.Message.Equals("Student with the same id already exist"))
+                {
+                    throw e;
+                }
+            }
             Course responseCourse;
             AllCourses.TryGetValue(course, out responseCourse);
             if (responseCourse == null)
@@ -64,13 +75,12 @@ namespace SchoolProject
                 BindingFlags.Instance | BindingFlags.InvokeMethod, null, responseCourse, new object[] { student });
                 return addedStudent != null;
             }
-            catch(Exception e)
+            catch (Exception ex)
             {
-                throw e.InnerException;
+                throw ex.InnerException;
             }
-            
         }
-        public bool RemoveStudentToCourse(Course course, Student student)
+        public bool RemoveStudentFromCourse(Course course, Student student)
         {
             Course responseCourse;
             AllCourses.TryGetValue(course, out responseCourse);
@@ -86,10 +96,65 @@ namespace SchoolProject
                 BindingFlags.Instance | BindingFlags.InvokeMethod, null, responseCourse, new object[] { student });
                 return removedSrudent != null;
             }
-            catch(Exception e)
+            catch (Exception e)
             {
                 throw e.InnerException;
             }
+        }
+        public bool RemoveStudentFromSchool(Student student)
+        {
+            int deletedCounter = 0;
+            Student studentForDelete;
+            AllStudents.TryGetValue(student, out studentForDelete);
+            if (studentForDelete == null)
+            {
+                throw new ArgumentException("Your student don`t study in this school");
+            }
+            else
+            {
+
+                AllStudents.Remove(student);
+                foreach (Course course in AllCourses)
+                {
+                    try
+                    {
+                        Student removedSrudent = (Student)course.GetType().InvokeMember("leftCourse",
+                          BindingFlags.DeclaredOnly |
+                          BindingFlags.Public | BindingFlags.NonPublic |
+                          BindingFlags.Instance | BindingFlags.InvokeMethod, null, course, new object[] { student });
+                        if (removedSrudent != null)
+                        {
+                            deletedCounter++;
+                        }
+                    }
+                    catch (Exception e)
+                    {
+                        if (e.InnerException.Message.Equals("Something was wrong"))
+                            throw e;
+                    }
+                }
+            }
+            return deletedCounter > 0 ? true : false;
+        }
+         public Course TryGetValueFromAllCourses(Course course)
+        {
+            Course returnCourse;
+            this.AllCourses.TryGetValue(course, out returnCourse);
+            return returnCourse;
+        }
+        public int CoutnOfCourses()
+        {          
+            return AllCourses.Count;
+        }
+        public Student TryGetValueFromAllStudents(Student student)
+        {
+            Student returnStudent;
+            this.AllStudents.TryGetValue(student, out returnStudent);
+            return returnStudent;
+        }
+        public int CoutnOfStudents()
+        {
+            return AllStudents.Count;
         }
     }
 }
