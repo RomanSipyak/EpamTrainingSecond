@@ -1,22 +1,18 @@
-﻿using PrinterHelpers;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading;
-using System.Threading.Tasks;
-using Training9;
-
-namespace RunProject.RunImplementations.Training9
+﻿namespace RunProject.RunImplementations.Training9
 {
-    class RunnerForThreads : IRun
-    {
-        public IPrinter Printer { get; set; } = new PrinterHelpers.PrintersImplementations.ConsolePrinter();
+    using System;
+    using System.Linq;
+    using global::Training9;
+    using PrinterHelpers;
 
+    public class RunnerForThreads : IRun
+    {
         public RunnerForThreads(IPrinter printer)
         {
-            Printer = printer;
+            this.Printer = printer;
         }
+
+        public IPrinter Printer { get; set; } = new PrinterHelpers.PrintersImplementations.ConsolePrinter();
 
         public bool Run()
         {
@@ -24,12 +20,14 @@ namespace RunProject.RunImplementations.Training9
             {
                 Random random = new Random();
                 TreadSummarize separ = new TreadSummarize();
-                double[,] array = new double[3, 3];
+                double[,] array = new double[4, 10];
+                double sum = 0;
                 for (int i = 0; i < array.GetLength(0); i++)
                 {
                     for (int j = 0; j < array.GetLength(1); j++)
                     {
                         array[i, j] = random.Next(1, 20);
+                        sum += array[i, j];
                     }
                 }
 
@@ -42,28 +40,16 @@ namespace RunProject.RunImplementations.Training9
 
                     Console.WriteLine();
                 }
-                Console.WriteLine("aaaaaaaaaaaaaaaa");
-                //foreach (double[,] a in separ.Separator(array, 9))
-                //{
-                //    //Console.WriteLine($"{a.ElementAt(0).GetLength(0)}");
-                //    for (int i = 0; i < a.GetLength(0); i++)
-                //    {
-                //        for (int j = 0; j < a.GetLength(1); j++)
-                //        {
-                //            Console.Write($"a[{i},{j}] = {array[i, j]}");
-                //        }
 
-                //        Console.WriteLine();
-                //    }
-                //}
-                Console.WriteLine($"{separ.CalculateSum(array, 3)}");
-                Console.WriteLine($"{separ.sum}");
+                this.Printer.Writeline("///////////////////////");
+                this.Printer.Writeline($"{sum}");
+                this.Printer.Writeline($"{separ.CalculateSum(array, 100)}");
+                this.Printer.Writeline($"{separ.Sum}");
                 return true;
             }
-
             catch (Exception e)
             {
-                Printer.Writeline(e.Message);
+                this.Printer.Writeline(e.Message);
                 Console.ReadKey();
                 return false;
             }

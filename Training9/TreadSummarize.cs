@@ -11,8 +11,9 @@ namespace Training9
 
     public class TreadSummarize
     {
-        public double sum = 0;
-        private static readonly object locker = new object();
+        public double Sum { get; private set; }
+
+        private static readonly object Locker = new object();
 
         public double CalculateSum(double[,] array, int k)
         {
@@ -25,25 +26,24 @@ namespace Training9
                 myThread.Join();
             }
 
-            return sum;
+            return this.Sum;
         }
 
         public void SumSection(object array)
         {
-
-            Monitor.Enter(locker);
+            Monitor.Enter(Locker);
             for (int i = 0; i < ((double[,])array).GetLength(0); i++)
             {
                 for (int j = 0; j < ((double[,])array).GetLength(1); j++)
                 {
-                    Console.WriteLine($"Number of thread {Thread.CurrentThread.GetHashCode()} a[{i}][{j}] = {((double[,])array)[i, j]} sum = {sum}");
+                    Console.WriteLine($"Number of thread {Thread.CurrentThread.GetHashCode()} a[{i}][{j}] = {((double[,])array)[i, j]} sum = {Sum}");
 
-                    sum += ((double[,])array)[i, j];
-                    Console.WriteLine($"Number of thread {Thread.CurrentThread.GetHashCode()} sum = {sum}");
+                    this.Sum += ((double[,])array)[i, j];
+                    Console.WriteLine($"Number of thread {Thread.CurrentThread.GetHashCode()} sum = {Sum}");
                 }
             }
 
-            Monitor.Exit(locker);
+            Monitor.Exit(Locker);
         }
 
         public List<double[,]> Separator(double[,] array, int k)
@@ -51,11 +51,18 @@ namespace Training9
             int row = array.GetLength(0);
             int column = array.GetLength(1);
             int devision = row / k;
-            int lengthOfList = k;
+            int lengthOfList = 0;
             double[,] separateArray;
-            if (row % k != 0)
+
+            if (column / k > 0)
             {
-                lengthOfList++;
+                lengthOfList = k;
+            }
+
+            if (column / k == 0)
+            {
+                lengthOfList = column;
+                k = column;
             }
 
             List<double[,]> listOfSeparateValues = new List<double[,]>();
@@ -70,7 +77,7 @@ namespace Training9
                 }
                 else
                 {
-                    separateArray = new double[row, array.GetLength(1) - ((column / k) * k)];
+                    separateArray = new double[row, column - ((i - 1) * column / k)];
                 }
 
                 m = j;
@@ -82,7 +89,6 @@ namespace Training9
                     {
                         while (j < i * (column / k))
                         {
-                            //Console.Write(array[r, j]);
                             separateArray[r, collum2] = array[r, j];
                             j++;
                             collum2++;
@@ -92,7 +98,6 @@ namespace Training9
                     {
                         while (j < column)
                         {
-                            //Console.Write(array[r, j]);
                             separateArray[r, collum2] = array[r, j];
                             j++;
                             collum2++;
@@ -101,7 +106,6 @@ namespace Training9
                 }
 
                 listOfSeparateValues.Add(separateArray);
-                Console.WriteLine();
             }
 
             return listOfSeparateValues;
