@@ -1,17 +1,16 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace SchoolProject.Comparers
+﻿namespace SchoolProject.Comparers
 {
-    class CourseComparer : IEqualityComparer<Course>
+    using System.Collections.Generic;
+
+    public class CourseComparer : IEqualityComparer<Course>
     {
         public bool Equals(Course x, Course y)
         {
-            if (x.nameCourcse.Equals(y.nameCourcse))
+            if (x.NameCourcse.Equals(y.NameCourcse))
             {
                 return true;
             }
+
             return false;
         }
 
@@ -20,7 +19,7 @@ namespace SchoolProject.Comparers
             unchecked
             {
                 int hash = 17;
-                hash = hash * 23 + obj.nameCourcse.GetHashCode();
+                hash = (hash * 23) + obj.NameCourcse.GetHashCode();
                 return hash;
             }
         }

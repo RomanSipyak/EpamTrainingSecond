@@ -1,9 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace SchoolProject.Comparers
+﻿namespace SchoolProject.Comparers
 {
+    using System.Collections.Generic;
+
     class StudentComparerById : IEqualityComparer<Student>
     {
         public bool Equals(Student x, Student y)
@@ -18,7 +16,7 @@ namespace SchoolProject.Comparers
         public int GetHashCode(Student obj)
         {
             int hash = 17;
-            hash = hash * 23 + obj.Number.GetHashCode();
+            hash = (hash * 23) + obj.Number.GetHashCode();
             return hash;
         }
     }

@@ -1,32 +1,31 @@
-﻿using SchoolProject.Comparers;
-using System;
-using System.Collections.Generic;
-using System.Reflection;
-using System.Text;
-
-namespace SchoolProject
+﻿namespace SchoolProject
 {
+    using System;
+    using System.Collections.Generic;
+    using System.Reflection;
+    using SchoolProject.Comparers;
+
     public class School
     {
-        private readonly HashSet<Student> AllStudents;
+        private readonly HashSet<Student> allStudents;
 
-        private readonly HashSet<Course> AllCourses;
+        private readonly HashSet<Course> allCourses;
 
         public School()
         {
-            AllStudents = new HashSet<Student>(new StudentComparerById());
-            AllCourses = new HashSet<Course>(new CourseComparer());
+            this.allStudents = new HashSet<Student>(new StudentComparerById());
+            this.allCourses = new HashSet<Course>(new CourseComparer());
         }
 
-        public bool AddCourse(string Name)
+        public bool AddCourse(string name)
         {
-            return AllCourses.Add(new Course(Name));
+            return this.allCourses.Add(new Course(name));
         }
 
         public bool AddStudentToSchool(Student student)
         {
             Student taketStudent;
-            AllStudents.TryGetValue(student, out taketStudent);
+            this.allStudents.TryGetValue(student, out taketStudent);
             if (taketStudent != null)
             {
                 throw new ArgumentException("Student with the same id already exist");
@@ -41,13 +40,12 @@ namespace SchoolProject
             {
                 throw new ArgumentException("Wrong name, can`t be empty");
             }
-
             else
             {
-                return AllStudents.Add(student);
+                return this.allStudents.Add(student);
             }
         }
-        
+
         public bool AddStudentToCourse(Course course, Student student)
         {
             try
@@ -61,18 +59,22 @@ namespace SchoolProject
                     throw e;
                 }
             }
+
             Course responseCourse;
-            AllCourses.TryGetValue(course, out responseCourse);
+            this.allCourses.TryGetValue(course, out responseCourse);
             if (responseCourse == null)
             {
                 throw new ArgumentException("Course don`t exist");
             }
+
             try
             {
-                Student addedStudent = (Student)responseCourse.GetType().InvokeMember("joinCourse",
-                BindingFlags.DeclaredOnly |
-                BindingFlags.Public | BindingFlags.NonPublic |
-                BindingFlags.Instance | BindingFlags.InvokeMethod, null, responseCourse, new object[] { student });
+                Student addedStudent = (Student)responseCourse.GetType().InvokeMember(
+                    "JoinToCourse",
+                    BindingFlags.DeclaredOnly | BindingFlags.Public | BindingFlags.NonPublic | BindingFlags.Instance | BindingFlags.InvokeMethod,
+                    null,
+                    responseCourse,
+                    new object[] { student });
                 return addedStudent != null;
             }
             catch (Exception ex)
@@ -80,20 +82,24 @@ namespace SchoolProject
                 throw ex.InnerException;
             }
         }
+
         public bool RemoveStudentFromCourse(Course course, Student student)
         {
             Course responseCourse;
-            AllCourses.TryGetValue(course, out responseCourse);
+            this.allCourses.TryGetValue(course, out responseCourse);
             if (responseCourse == null)
             {
                 throw new ArgumentException("Course don`t exist");
             }
+
             try
             {
-                Student removedSrudent = (Student)responseCourse.GetType().InvokeMember("leftCourse",
-                BindingFlags.DeclaredOnly |
-                BindingFlags.Public | BindingFlags.NonPublic |
-                BindingFlags.Instance | BindingFlags.InvokeMethod, null, responseCourse, new object[] { student });
+                Student removedSrudent = (Student)responseCourse.GetType().InvokeMember(
+                    "LeaveCourse",
+                    BindingFlags.DeclaredOnly | BindingFlags.Public | BindingFlags.NonPublic | BindingFlags.Instance | BindingFlags.InvokeMethod,
+                    null,
+                    responseCourse,
+                    new object[] { student });
                 return removedSrudent != null;
             }
             catch (Exception e)
@@ -101,27 +107,29 @@ namespace SchoolProject
                 throw e.InnerException;
             }
         }
+
         public bool RemoveStudentFromSchool(Student student)
         {
             int deletedCounter = 0;
             Student studentForDelete;
-            AllStudents.TryGetValue(student, out studentForDelete);
+            this.allStudents.TryGetValue(student, out studentForDelete);
             if (studentForDelete == null)
             {
                 throw new ArgumentException("Your student don`t study in this school");
             }
             else
             {
-
-                AllStudents.Remove(student);
-                foreach (Course course in AllCourses)
+                this.allStudents.Remove(student);
+                foreach (Course course in this.allCourses)
                 {
                     try
                     {
-                        Student removedSrudent = (Student)course.GetType().InvokeMember("leftCourse",
-                          BindingFlags.DeclaredOnly |
-                          BindingFlags.Public | BindingFlags.NonPublic |
-                          BindingFlags.Instance | BindingFlags.InvokeMethod, null, course, new object[] { student });
+                        Student removedSrudent = (Student)course.GetType().InvokeMember(
+                            "LeaveCourse",
+                            BindingFlags.DeclaredOnly | BindingFlags.Public | BindingFlags.NonPublic | BindingFlags.Instance | BindingFlags.InvokeMethod,
+                            null,
+                            course,
+                            new object[] { student });
                         if (removedSrudent != null)
                         {
                             deletedCounter++;
@@ -130,31 +138,38 @@ namespace SchoolProject
                     catch (Exception e)
                     {
                         if (e.InnerException.Message.Equals("Something was wrong"))
+                        {
                             throw e;
+                        }
                     }
                 }
             }
+
             return deletedCounter > 0 ? true : false;
         }
-         public Course TryGetValueFromAllCourses(Course course)
+
+        public Course TryGetValueFromAllCourses(Course course)
         {
             Course returnCourse;
-            this.AllCourses.TryGetValue(course, out returnCourse);
+            this.allCourses.TryGetValue(course, out returnCourse);
             return returnCourse;
         }
+
         public int CoutnOfCourses()
-        {          
-            return AllCourses.Count;
+        {
+            return this.allCourses.Count;
         }
+
         public Student TryGetValueFromAllStudents(Student student)
         {
             Student returnStudent;
-            this.AllStudents.TryGetValue(student, out returnStudent);
+            this.allStudents.TryGetValue(student, out returnStudent);
             return returnStudent;
         }
+
         public int CoutnOfStudents()
         {
-            return AllStudents.Count;
+            return this.allStudents.Count;
         }
     }
 }

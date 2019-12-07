@@ -39,6 +39,10 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SchoolProject", "SchoolProj
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConsoleApplicationBase", "ConsoleApplicationBase\ConsoleApplicationBase\ConsoleApplicationBase.csproj", "{D21CC334-9E7D-4A29-B6F9-5120351EC703}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DllLoader", "DllLoader\DllLoader.csproj", "{8BB8842B-2992-4758-A06D-AABC40FF84F6}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestForDllLoader", "TestForDllLoader\TestForDllLoader.csproj", "{59E85228-97DF-4927-A702-AA119C711EC6}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -109,6 +113,14 @@ Global
 		{D21CC334-9E7D-4A29-B6F9-5120351EC703}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D21CC334-9E7D-4A29-B6F9-5120351EC703}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{D21CC334-9E7D-4A29-B6F9-5120351EC703}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8BB8842B-2992-4758-A06D-AABC40FF84F6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8BB8842B-2992-4758-A06D-AABC40FF84F6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8BB8842B-2992-4758-A06D-AABC40FF84F6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8BB8842B-2992-4758-A06D-AABC40FF84F6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{59E85228-97DF-4927-A702-AA119C711EC6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{59E85228-97DF-4927-A702-AA119C711EC6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{59E85228-97DF-4927-A702-AA119C711EC6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{59E85228-97DF-4927-A702-AA119C711EC6}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

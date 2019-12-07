@@ -1,60 +1,66 @@
-﻿using Comparers.SchoolProject;
-using SchoolProject.Comparers;
-using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace SchoolProject
+﻿namespace SchoolProject
 {
+    using System;
+    using System.Collections.Generic;
+    using SchoolProject.Comparers;
+
     public class Course
     {
-        public string nameCourcse { get; set; }
-        private readonly HashSet<Student> CourseStudents;
+        private readonly HashSet<Student> courseStudents;
 
         public Course(string nameCourcse)
         {
-            this.nameCourcse = nameCourcse;
-            CourseStudents = new HashSet<Student>(new StudentComparerById());
+            this.NameCourcse = nameCourcse;
+            courseStudents = new HashSet<Student>(new StudentComparerById());
         }
 
-        private Student joinCourse(Student student)
-        {
-            if (CourseStudents.Contains(student))
-            {
-                throw new ArgumentException("Student already registered in this course");
-            }
-            if (CourseStudents.Count >= 29)
-            {
-                throw new ArgumentException("Course is full");
-            }
-            if (CourseStudents.Add(student))
-            {
-                return student;
-            }
-            throw new Exception("Something was wrong");
-        }
-        private Student leftCourse(Student student)
-        {
-            if (!CourseStudents.Contains(student))
-            {
-                throw new ArgumentException("Student is not registered in this course");
-            }
-            if (CourseStudents.Remove(student))
-            {
-                return student;
-            }
-            throw new Exception("Something was wrong");
-        }
+        public string NameCourcse { get; set; }
 
         public Student GetStudent(Student student)
         {
             Student studentForReturn;
-            CourseStudents.TryGetValue(student, out studentForReturn);
+            this.courseStudents.TryGetValue(student, out studentForReturn);
             return studentForReturn;
         }
+
         public int GetStudentsCount()
         {
-            return CourseStudents.Count;
+            return this.courseStudents.Count;
+        }
+
+        private Student JoinToCourse(Student student)
+        {
+            if (this.courseStudents.Contains(student))
+            {
+                throw new ArgumentException("Student already registered in this course");
+            }
+
+            if (this.courseStudents.Count >= 29)
+            {
+                throw new ArgumentException("Course is full");
+            }
+
+            if (this.courseStudents.Add(student))
+            {
+                return student;
+            }
+
+            throw new Exception("Something was wrong");
+        }
+
+        private Student LeaveCourse(Student student)
+        {
+            if (!this.courseStudents.Contains(student))
+            {
+                throw new ArgumentException("Student is not registered in this course");
+            }
+
+            if (this.courseStudents.Remove(student))
+            {
+                return student;
+            }
+
+            throw new Exception("Something was wrong");
         }
     }
 }
