@@ -1,14 +1,10 @@
-﻿using PrinterHelpers;
-using PrinterHelpers.PrintersImplementations;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Reflection;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace RunProject.RunImplementations.Training6
+﻿namespace RunProject.RunImplementations.Training6
 {
+    using System;
+    using System.Reflection;
+    using PrinterHelpers;
+    using PrinterHelpers.PrintersImplementations;
+
     public class ReflectionImplementation : IRun
     {
         public ReflectionImplementation(IPrinter printer)

@@ -1,22 +1,19 @@
-﻿using PrinterHelpers;
-using PrinterHelpers.PrintersImplementations;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Training2.Task1._3._5;
-
-namespace RunProject.RunImplementations.Training2
+﻿namespace RunProject.RunImplementations.Training2
 {
+    using System;
+    using global::Training2.Task1._3._5;
+    using PrinterHelpers;
+    using PrinterHelpers.PrintersImplementations;
+
     class RunnerForAllTasks : IRun
     {
-        public IPrinter Printer { get; set; } = new ConsolePrinter();
-
         public RunnerForAllTasks(IPrinter printer)
         {
-            Printer = printer;
+            this.Printer = printer;
         }
+
+        public IPrinter Printer { get; set; } = new ConsolePrinter();
+
         public bool Run()
         {
             try
@@ -25,16 +22,18 @@ namespace RunProject.RunImplementations.Training2
             }
             catch (StackOverflowException e)
             {
-                Printer.Writeline(e.Message);
+                this.Printer.Writeline(e.Message);
             }
+
             try
             {
                 ClassWithExceptionsMethods.GetNumber(new int[] { 1, 2, 3 }, 5);
             }
             catch (IndexOutOfRangeException e)
             {
-                Printer.Writeline(e.Message);
+                this.Printer.Writeline(e.Message);
             }
+
             try
             {
                 ClassWithExceptionsMethods.DoSomeMath(-2, 10);
@@ -42,13 +41,14 @@ namespace RunProject.RunImplementations.Training2
             catch (ArgumentException e)
             when (e.ParamName == "a")
             {
-                Printer.Writeline(e.Message);
+                this.Printer.Writeline(e.Message);
             }
             catch (ArgumentException e)
             when (e.ParamName == "b")
             {
-                Printer.Writeline(e.Message);
+                this.Printer.Writeline(e.Message);
             }
+
             try
             {
                 ClassWithExceptionsMethods.DoSomeMath(5, 10);
@@ -56,13 +56,14 @@ namespace RunProject.RunImplementations.Training2
             catch (ArgumentException e)
             when (e.ParamName == "a")
             {
-                Printer.Writeline(e.Message);
+                this.Printer.Writeline(e.Message);
             }
             catch (ArgumentException e)
             when (e.ParamName == "b")
             {
-                Printer.Writeline(e.Message);
+                this.Printer.Writeline(e.Message);
             }
+
             return true;
         }
     }

@@ -1,7 +1,6 @@
 ﻿namespace RunProject.RunImplementations.Training9
 {
     using System;
-    using System.Linq;
     using global::Training9;
     using PrinterHelpers;
 

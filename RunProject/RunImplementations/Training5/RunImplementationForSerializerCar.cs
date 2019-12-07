@@ -1,14 +1,11 @@
-﻿using PrinterHelpers;
-using PrinterHelpers.PrintersImplementations;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Training5.Task1;
-
-namespace RunProject.RunImplementations.Training5
+﻿namespace RunProject.RunImplementations.Training5
 {
+    using System;
+    using System.Collections.Generic;
+    using global::Training5.Task1;
+    using PrinterHelpers;
+    using PrinterHelpers.PrintersImplementations;
+
     public class RunImplementationForSerializerCar : IRun
     {
         public RunImplementationForSerializerCar(IPrinter printer)

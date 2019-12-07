@@ -1,8 +1,8 @@
-﻿using System;
-using Training8;
-
-namespace RunProject.RunImplementations.Training8
+﻿namespace RunProject.RunImplementations.Training8
 {
+    using global::Training8;
+    using System;
+
     public class RunCalc : IRun
     {
         public bool Run()
