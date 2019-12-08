@@ -33,3 +33,32 @@
     Адреси папок задаються в AppConfig.
     Загальна умова. try catch там де потрібно, SOLID, незалежність від інтерфейса (на Dll),
     Сode Style, файли в форматі excel (як для ввода так і виводу) 
+    
+# :blue_book: Description :blue_book:
+**Варіант 1**
+
+    В RunProject у appsetings вказати шляхи для для виводу на консьоль або у файл вказати.
+    наприклад:  <add key="TargetForUniqueValues" value="ConsolePrinter"/>
+                або
+                <add key="TargetForUniqueValues" value="FilePrinter"/>
+    В RunProject у appsetings вказати шлях де є списки і колонки для порівняння та файл для виводу результату.
+    наприклад: <add key="collumsKays" value="4,5"/>
+               <add key="PathToFileWithLists" value="C:\Users\GOOD\Desktop\test.xls"/>
+                <add key="TargetFilePath" value="C:\\Users\\GOOD\\Desktop\\FileOut.xls"/>  
+                
+Вивід у вигляді  
+
+| Unique elements 4  |
+| ------------ |
+| element1   |
+| element2  |
+| element3  |
+
+
+**Варіант 2**
+
+    В RunProject у appsetings вказати шляхи для порівняння папок.
+    наприклад: <add key="PathFolderSecond" value="C:\\Users\\GOOD\\Desktop\\web-service 2"/>
+                <add key="PathFolderFirst" value="C:\\Users\\GOOD\\Desktop\\web-service"/>
+    В RunProject у appsetings вказати шляхи для виводу результатаів у xls файл.
+    наприклад: <add key="TargetToOutput" value="C:\Users\GOOD\Desktop\test.xls"/>    
