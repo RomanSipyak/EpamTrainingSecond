@@ -1,22 +1,22 @@
-﻿using NPOI.SS.UserModel;
-using NPOI.XSSF.UserModel;
-using System;
-using System.Collections.Generic;
-using System.Configuration;
-using System.IO;
-
-namespace Training7.FolderTaskVariant2.WritersDerectoty
+﻿namespace Training7.FolderTaskVariant2.WritersDerectoty
 {
+    using System;
+    using System.Collections.Generic;
+    using System.Configuration;
+    using System.IO;
+    using NPOI.SS.UserModel;
+    using NPOI.XSSF.UserModel;
+
     public class WriterToExcel : IWriterDerectory
     {
         private FileStream fileStream = null;
-
-        private delegate HashSet<FileInfo> DirectoryOperation();
 
         public WriterToExcel(ShowerDirectory showerDerectoryInstance)
         {
             this.ShowerDerectoryInstance = showerDerectoryInstance;
         }
+
+        private delegate HashSet<FileInfo> DirectoryOperation();
 
         public ShowerDirectory ShowerDerectoryInstance { get; private set; }
 

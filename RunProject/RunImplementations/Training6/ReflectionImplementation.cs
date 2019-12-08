@@ -16,9 +16,13 @@
 
         public bool Run()
         {
+            this.Printer.Writeline("Do reflection for path " + @"C:\Users\GOOD\source\repos\EpamTrainingSecond\Training1\bin\Debug\Training1.dll");
             this.ReflectionContext(@"C:\Users\GOOD\source\repos\EpamTrainingSecond\Training1\bin\Debug\Training1.dll");
+            this.Printer.Writeline("Do reflection for path " + @"C:\Users\GOOD\source\repos\EpamTrainingSecond\Training2\bin\Debug\Training2.dll");
             this.ReflectionContext(@"C:\Users\GOOD\source\repos\EpamTrainingSecond\Training2\bin\Debug\Training2.dll");
+            this.Printer.Writeline("Do reflection for path " + @"C:\Users\GOOD\source\repos\EpamTrainingSecond\Training3\bin\Debug\Training3.dll");
             this.ReflectionContext(@"C:\Users\GOOD\source\repos\EpamTrainingSecond\Training3\bin\Debug\Training3.dll");
+            this.Printer.Writeline("Do reflection for path " + @"C:\Users\GOOD\source\repos\EpamTrainingSecond\Training5\bin\Debug\Training5.dll");
             this.ReflectionContext(@"C:\Users\GOOD\source\repos\EpamTrainingSecond\Training5\bin\Debug\Training5.dll");
             return true;
         }

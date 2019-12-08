@@ -1,8 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-
-namespace Training7.TaskVariant1
+﻿namespace Training7.TaskVariant1
 {
+    using System;
+    using System.Collections.Generic;
+
     public class ConsolePrinter : IWriter
     {
         public void Print(List<string> list)

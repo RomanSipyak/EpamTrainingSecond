@@ -69,7 +69,7 @@
                 //writerToExcel.Intersection();
                 //writerToExcel.ExpectDirectory();
                 myTimer.Stop();
-                Printer.Writeline($"time taken: {+myTimer.Elapsed}");
+                this.Printer.Writeline($"time taken: {+myTimer.Elapsed}");
                 ListsComparer a = new ListsComparer();
                 a.CompareAndPrintUniqueValues();
                 //ExcelTest ecxel = new ExcelTest();

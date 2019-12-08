@@ -1,4 +1,8 @@
-﻿namespace RunProject.RunImplementations.Training3
+﻿// <copyright file="RunnerForAllTasks.cs" company="PlaceholderCompany">
+// Copyright (c) PlaceholderCompany. All rights reserved.
+// </copyright>
+
+namespace RunProject.RunImplementations.Training3
 {
     using System;
     using System.Text;
@@ -20,7 +24,7 @@
             ShowerDirectory sd = new ShowerDirectory();
             string filesAndDerectories = sd.ShowerDirectoryAndFiles("C:\\Users\\GOOD\\source\\repos\\EpamTrainingSecond", new StringBuilder());
             this.Printer.Writeline(filesAndDerectories);
-            this.Printer.Writeline(sd.SearchByRootPath("C:\\Users\\GOOD\\source\\repos\\EpamTrainingSecond", "with"));
+            this.Printer.Writeline(sd.SearchFileByRootPathAndPartName("C:\\Users\\GOOD\\source\\repos\\EpamTrainingSecond", "with"));
             Console.ReadLine();
             return true;
         }

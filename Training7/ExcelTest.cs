@@ -1,14 +1,10 @@
-﻿using NPOI.SS.UserModel;
-using NPOI.XSSF.UserModel;
-using System;
-using System.Collections.Generic;
-using System.IO;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Training7
+﻿namespace Training7
 {
+    using System;
+    using System.IO;
+    using NPOI.SS.UserModel;
+    using NPOI.XSSF.UserModel;
+
     public class ExcelTest
     {
         Microsoft.Office.Interop.Excel.Application oXL;

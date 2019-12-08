@@ -12,6 +12,6 @@ namespace Training3
 
         string SearchInString(string strings, string nameOfFile);
 
-        string SearchByRootPath(string pathForDirectory, string nameOfFile);
+        string SearchFileByRootPathAndPartName(string pathForDirectory, string nameOfFile);
     }
 }

@@ -11,11 +11,11 @@
         public List<double> Read()
         {
             List<double> listvalue = new List<double>();
-            //Console.Write(ConfigurationManager.AppSettings["PathToValueFile"].ToString());
             if (!File.Exists(ConfigurationManager.AppSettings["PathToValueFile"].ToString()))
             {
                 throw new DirectoryNotFoundException();
             }
+
             using (StreamReader streamReader = new StreamReader(ConfigurationManager.AppSettings["PathToValueFile"].ToString()))
             {
                 string line;
@@ -25,6 +25,7 @@
                     i++;
                     listvalue.Add(double.Parse(line));
                 }
+
                 return listvalue;
             }
         }

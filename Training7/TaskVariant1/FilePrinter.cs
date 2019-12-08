@@ -1,12 +1,12 @@
-﻿using NPOI.SS.UserModel;
-using NPOI.XSSF.UserModel;
-using System;
-using System.Collections.Generic;
-using System.Configuration;
-using System.IO;
-
-namespace Training7.TaskVariant1
+﻿namespace Training7.TaskVariant1
 {
+    using System;
+    using System.Collections.Generic;
+    using System.Configuration;
+    using System.IO;
+    using NPOI.SS.UserModel;
+    using NPOI.XSSF.UserModel;
+
     public class FilePrinter : IWriter
     {
         private FileStream fileStream = null;

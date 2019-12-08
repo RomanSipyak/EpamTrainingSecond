@@ -1,14 +1,10 @@
-﻿using Moq;
-using NUnit.Framework;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Trainig1.Task4;
-
-namespace Training1.Tests.Task4
+﻿namespace Training1.Tests.Task4
 {
+    using System;
+    using System.Linq;
+    using NUnit.Framework;
+    using Trainig1.Task4;
+
     struct IStub : IConvertible
     {
         public TypeCode GetTypeCode()

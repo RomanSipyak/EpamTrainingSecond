@@ -4,6 +4,7 @@
     using System.Collections.Generic;
     using Logger;
     using PrinterHelpers.PrintersImplementations;
+    using RunProject.RunImplementations.IOCcontainer;
     using RunProject.RunImplementations.Training8;
     using RunProject.RunImplementations.Training9;
 
@@ -24,6 +25,7 @@
                 menu.Add("T7TaskAll", new RunImplementations.Training7.CircleAndRectangleRunImplementation(new ConsolePrinter()));
                 menu.Add("T8TaskAll", new RunCalc());
                 menu.Add("T9TaskAll", new RunnerForThreads(new ConsolePrinter()));
+                menu.Add("IOC", new RunnerForIocContainer(new ConsolePrinter()));
                 bool exit = true;
                 do
                 {
@@ -36,6 +38,7 @@
                     Console.WriteLine("If you want to run Training6 AllTask write T7TaskAll ");
                     Console.WriteLine("If you want to run Training6 AllTask write T8TaskAll ");
                     Console.WriteLine("If you want to run Training6 AllTask write T9TaskAll ");
+                    Console.WriteLine("If you want to run Training6 AllTask write IOC ");
                     string key = Console.ReadLine();
 
                     if (menu.ContainsKey(key))

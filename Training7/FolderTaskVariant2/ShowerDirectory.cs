@@ -35,10 +35,10 @@ namespace Training7.FolderTaskVariant2
         public ShowerDirectory()
         {
             string[] infoAboutFirstFoder = ShowerDirectory.ShowAllFiles(ConfigurationManager.AppSettings["PathFolderFirst"].ToString());
-            string[] infoAboutSecondFolder = ShowerDirectory.ShowAllFiles(ConfigurationManager.AppSettings["PathFolderSecond"].ToString());
-            this.DirectoryInfo1 = new HashSet<FileInfo>();
             this.DirectoryInfo2 = new HashSet<FileInfo>();
 
+            string[] infoAboutSecondFolder = ShowerDirectory.ShowAllFiles(ConfigurationManager.AppSettings["PathFolderSecond"].ToString());
+            this.DirectoryInfo1 = new HashSet<FileInfo>();
             foreach (string res in infoAboutFirstFoder)
             {
                 System.IO.FileInfo fileInfo = new System.IO.FileInfo(res);

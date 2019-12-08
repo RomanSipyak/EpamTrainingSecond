@@ -1,13 +1,9 @@
-﻿using NUnit.Framework;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Trainig1.Task2;
-
-namespace Training1.Tests.Task2
+﻿namespace Training1.Tests.Task2
 {
+    using System;
+    using NUnit.Framework;
+    using Trainig1.Task2;
+
     [TestFixture]
     public class RectangleTest
     {

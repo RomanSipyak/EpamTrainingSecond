@@ -1,11 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Training7.FolderWithFigures
+﻿namespace Training7.FolderWithFigures
 {
+    using System;
+
     class VectorOperations
     {
         public static double CalcLenghtVector(Point a, Point b)

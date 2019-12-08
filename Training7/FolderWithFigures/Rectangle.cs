@@ -1,13 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Training7.FolderWithFigures
+﻿namespace Training7.FolderWithFigures
 {
-    using System;
-
     public class Rectagle : IFigure<Rectagle>
     {
         public Rectagle(Point leftTopPoint, Point rightBottomPoin)

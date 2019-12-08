@@ -1,12 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.IO;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Training7.FolderTaskVariant2
+﻿namespace Training7.FolderTaskVariant2
 {
+    using System;
+    using System.Collections.Generic;
+    using System.IO;
+
     public class FileNameComparer : IEqualityComparer<FileInfo>
     {
         public bool Equals(FileInfo x, FileInfo y)

@@ -17,6 +17,7 @@
 
         public bool Run()
         {
+            this.Printer.Writeline("This part serialize and deserialize cars");
             List<Car> cars = new List<Car>();
             cars.Add(new Car { Marck = "BMVbinary", Speed = 145 });
             cars.Add(new Car { Marck = "FERARYbinary", Speed = 340 });

@@ -108,7 +108,7 @@
             }
         }
 
-        public string SearchByRootPath(string pathForDirectory, string nameOfFile)
+        public string SearchFileByRootPathAndPartName(string pathForDirectory, string nameOfFile)
         {
             try
             {

@@ -1,4 +1,8 @@
-﻿namespace RunProject.RunImplementations.Training2
+﻿// <copyright file="RunnerForAllTasks.cs" company="PlaceholderCompany">
+// Copyright (c) PlaceholderCompany. All rights reserved.
+// </copyright>
+
+namespace RunProject.RunImplementations.Training2
 {
     using System;
     using global::Training2.Task1._3._5;

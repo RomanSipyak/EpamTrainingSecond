@@ -72,6 +72,8 @@
     <Compile Include="IRun.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="RunImplementations\IOCcontainer\RandomGuiGenerator.cs" />
+    <Compile Include="RunImplementations\IOCcontainer\RunnerForIocContainer.cs" />
     <Compile Include="RunImplementations\Training1\RunnerForAllTasks.cs" />
     <Compile Include="RunImplementations\Training2\RunnerForAllTasks.cs" />
     <Compile Include="RunImplementations\Training3\RunnerForAllTasks.cs" />
@@ -86,6 +88,10 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\IOCcontainer\IOCcontainer.csproj">
+      <Project>{EE92EAFF-539B-4A80-B2CD-A51678C36238}</Project>
+      <Name>IOCcontainer</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Logger\Logger.csproj">
       <Project>{15be4a8a-1140-4da9-be94-aae919c61779}</Project>
       <Name>Logger</Name>

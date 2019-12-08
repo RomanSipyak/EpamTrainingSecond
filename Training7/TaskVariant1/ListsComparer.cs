@@ -1,13 +1,13 @@
-﻿using NPOI.SS.UserModel;
-using NPOI.XSSF.UserModel;
-using System;
-using System.Collections.Generic;
-using System.Configuration;
-using System.IO;
-using System.Linq;
-
-namespace Training7.TaskVariant1
+﻿namespace Training7.TaskVariant1
 {
+    using System;
+    using System.Collections.Generic;
+    using System.Configuration;
+    using System.IO;
+    using System.Linq;
+    using NPOI.SS.UserModel;
+    using NPOI.XSSF.UserModel;
+
     public class ListsComparer
     {
         private FileStream fileStream = null;
