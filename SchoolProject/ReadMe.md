@@ -9,3 +9,10 @@
        1. Verify max number of students in group.
        2. Check whether number entire School is unique.
        3. Student Name cannot be empty.
+# :blue_book: Description :blue_book:
+
+   Два тести з тренінга про Nunit знаходяться у https://github.com/aceofbase199/UnitTests/pulls
+   
+   Create SR_UserRepositoryTest
+   
+   Create SR_TimeZoneTest
