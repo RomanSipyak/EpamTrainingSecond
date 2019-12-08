@@ -1,7 +1,7 @@
 ﻿namespace RunProject.RunImplementations.Training8
 {
-    using global::Training8;
     using System;
+    using global::Training8;
 
     public class RunCalc : IRun
     {

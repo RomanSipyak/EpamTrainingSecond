@@ -22,11 +22,19 @@
             Person person = new Person("Roma", "Sypiak", 21);
             this.Printer.Writeline(person.GetElder(15));
             this.Printer.Writeline(person.GetElder(21));
-            uint n = Convert.ToUInt32(Console.ReadLine());
-            this.Printer.Writeline(MonthColection.GetMonthByNumber(n));
-            foreach (var value in Enum<Colors>.SortedValues)
+            this.Printer.Writeline("Write number of Month");
+            uint numBerOfMonth = Convert.ToUInt32(Console.ReadLine());
+            this.Printer.Writeline(MonthColection.GetMonthByNumber(numBerOfMonth));
+            this.Printer.Writeline("Enum.GetValues and Enum.GetNames are sorted by the values in the enumeration");
+            foreach (Colors value in Enum.GetValues(typeof(Colors)))
             {
-                Console.WriteLine(value);
+                this.Printer.Writeline(value + $"=> {(int)value}");
+            }
+
+            this.Printer.Writeline("Sorted Enum by extencion method");
+            foreach (Colors value in Enum<Colors>.SortedValues)
+            {
+                this.Printer.Writeline(value + $"=> {(int)value}");
             }
 
             this.Printer.Writeline($"Min = > {LongRangeTask.OutputLongRange(LongRange.Min)}");

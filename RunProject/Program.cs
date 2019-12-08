@@ -1,16 +1,12 @@
-﻿using Logger;
-using PrinterHelpers;
-using PrinterHelpers.PrintersImplementations;
-using RunProject.RunImplementations.Training8;
-using RunProject.RunImplementations.Training9;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace RunProject
+﻿namespace RunProject
 {
+    using System;
+    using System.Collections.Generic;
+    using Logger;
+    using PrinterHelpers.PrintersImplementations;
+    using RunProject.RunImplementations.Training8;
+    using RunProject.RunImplementations.Training9;
+
     public class Program
     {
         public static void Main(string[] args)
