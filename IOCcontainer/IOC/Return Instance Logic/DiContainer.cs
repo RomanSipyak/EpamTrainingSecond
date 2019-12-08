@@ -1,4 +1,8 @@
-﻿namespace IOCcontainer.IOC.Return_Instance_Logic
+﻿// <copyright file="DiContainer.cs" company="PlaceholderCompany">
+// Copyright (c) PlaceholderCompany. All rights reserved.
+// </copyright>
+
+namespace IOCcontainer.IOC.Return_Instance_Logic
 {
     using System;
     using System.Collections.Generic;

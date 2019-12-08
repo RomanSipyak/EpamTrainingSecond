@@ -1,4 +1,8 @@
-﻿namespace RunProject.RunImplementations.Training5
+﻿// <copyright file="RunImplementationForSerializerCar.cs" company="PlaceholderCompany">
+// Copyright (c) PlaceholderCompany. All rights reserved.
+// </copyright>
+
+namespace RunProject.RunImplementations.Training5
 {
     using System;
     using System.Collections.Generic;

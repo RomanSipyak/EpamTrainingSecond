@@ -1,4 +1,8 @@
-﻿namespace Training7.FolderWithFigures
+﻿// <copyright file="VectorOperations.cs" company="PlaceholderCompany">
+// Copyright (c) PlaceholderCompany. All rights reserved.
+// </copyright>
+
+namespace Training7.FolderWithFigures
 {
     using System;
 

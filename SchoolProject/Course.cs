@@ -1,4 +1,8 @@
-﻿namespace SchoolProject
+﻿// <copyright file="Course.cs" company="PlaceholderCompany">
+// Copyright (c) PlaceholderCompany. All rights reserved.
+// </copyright>
+
+namespace SchoolProject
 {
     using System;
     using System.Collections.Generic;

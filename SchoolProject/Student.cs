@@ -1,4 +1,8 @@
-﻿namespace SchoolProject
+﻿// <copyright file="Student.cs" company="PlaceholderCompany">
+// Copyright (c) PlaceholderCompany. All rights reserved.
+// </copyright>
+
+namespace SchoolProject
 {
     public class Student
     {

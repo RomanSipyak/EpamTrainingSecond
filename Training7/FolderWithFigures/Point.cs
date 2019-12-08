@@ -1,4 +1,8 @@
-﻿namespace Training7.FolderWithFigures
+﻿// <copyright file="Point.cs" company="PlaceholderCompany">
+// Copyright (c) PlaceholderCompany. All rights reserved.
+// </copyright>
+
+namespace Training7.FolderWithFigures
 {
     public class Point
     {

@@ -1,4 +1,8 @@
-﻿namespace Training1.Tests.Task5
+﻿// <copyright file="LongRangeTest.cs" company="PlaceholderCompany">
+// Copyright (c) PlaceholderCompany. All rights reserved.
+// </copyright>
+
+namespace Training1.Tests.Task5
 {
     using NUnit.Framework;
     using Trainig1.Task5;

@@ -1,4 +1,8 @@
-﻿namespace RunProject.RunImplementations.Training7
+﻿// <copyright file="CircleAndRectangleRunImplementation.cs" company="PlaceholderCompany">
+// Copyright (c) PlaceholderCompany. All rights reserved.
+// </copyright>
+
+namespace RunProject.RunImplementations.Training7
 {
     using System;
     using System.Diagnostics;

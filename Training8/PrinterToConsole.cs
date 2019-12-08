@@ -1,4 +1,8 @@
-﻿namespace Training8
+﻿// <copyright file="PrinterToConsole.cs" company="PlaceholderCompany">
+// Copyright (c) PlaceholderCompany. All rights reserved.
+// </copyright>
+
+namespace Training8
 {
     using System;
     using System.Collections.Generic;

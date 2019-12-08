@@ -1,4 +1,8 @@
-﻿namespace Training7.FolderWithFigures
+﻿// <copyright file="IFigure{T}.cs" company="PlaceholderCompany">
+// Copyright (c) PlaceholderCompany. All rights reserved.
+// </copyright>
+
+namespace Training7.FolderWithFigures
 {
     public interface IFigure<T>
     {

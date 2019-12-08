@@ -1,4 +1,8 @@
-﻿namespace RunProject.RunImplementations.Training6
+﻿// <copyright file="ReflectionImplementation.cs" company="PlaceholderCompany">
+// Copyright (c) PlaceholderCompany. All rights reserved.
+// </copyright>
+
+namespace RunProject.RunImplementations.Training6
 {
     using System;
     using System.Reflection;

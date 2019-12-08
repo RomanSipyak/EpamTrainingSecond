@@ -1,4 +1,8 @@
-﻿namespace SchoolProject.Tests
+﻿// <copyright file="TestsForSchool.cs" company="PlaceholderCompany">
+// Copyright (c) PlaceholderCompany. All rights reserved.
+// </copyright>
+
+namespace SchoolProject.Tests
 {
     using System;
     using NUnit.Framework;

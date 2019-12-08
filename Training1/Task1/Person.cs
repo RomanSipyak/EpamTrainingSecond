@@ -1,4 +1,8 @@
-﻿namespace Trainig1.Task1
+﻿// <copyright file="Person.cs" company="PlaceholderCompany">
+// Copyright (c) PlaceholderCompany. All rights reserved.
+// </copyright>
+
+namespace Trainig1.Task1
 {
     using System;
 

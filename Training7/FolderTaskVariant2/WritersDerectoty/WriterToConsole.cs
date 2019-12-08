@@ -1,4 +1,8 @@
-﻿namespace Training7.FolderTaskVariant2.WritersDerectoty
+﻿// <copyright file="WriterToConsole.cs" company="PlaceholderCompany">
+// Copyright (c) PlaceholderCompany. All rights reserved.
+// </copyright>
+
+namespace Training7.FolderTaskVariant2.WritersDerectoty
 {
     using System;
     using System.Collections.Generic;

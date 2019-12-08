@@ -1,4 +1,8 @@
-﻿namespace Training7.TaskVariant1
+﻿// <copyright file="ConsolePrinter.cs" company="PlaceholderCompany">
+// Copyright (c) PlaceholderCompany. All rights reserved.
+// </copyright>
+
+namespace Training7.TaskVariant1
 {
     using System;
     using System.Collections.Generic;

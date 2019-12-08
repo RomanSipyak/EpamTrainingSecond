@@ -1,4 +1,8 @@
-﻿namespace RunProject.RunImplementations.Training9
+﻿// <copyright file="RunnerForThreads.cs" company="PlaceholderCompany">
+// Copyright (c) PlaceholderCompany. All rights reserved.
+// </copyright>
+
+namespace RunProject.RunImplementations.Training9
 {
     using System;
     using global::Training9;

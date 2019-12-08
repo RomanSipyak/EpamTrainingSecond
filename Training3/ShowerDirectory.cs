@@ -1,4 +1,8 @@
-﻿namespace Training3
+﻿// <copyright file="ShowerDirectory.cs" company="PlaceholderCompany">
+// Copyright (c) PlaceholderCompany. All rights reserved.
+// </copyright>
+
+namespace Training3
 {
     using System;
     using System.IO;

@@ -1,4 +1,8 @@
-﻿namespace Training1.Tests.Task4
+﻿// <copyright file="EnumTest.cs" company="PlaceholderCompany">
+// Copyright (c) PlaceholderCompany. All rights reserved.
+// </copyright>
+
+namespace Training1.Tests.Task4
 {
     using System;
     using System.Linq;

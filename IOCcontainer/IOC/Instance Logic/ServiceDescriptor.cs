@@ -1,4 +1,8 @@
-﻿namespace IOCcontainer.IOC.Instance_Logic
+﻿// <copyright file="ServiceDescriptor.cs" company="PlaceholderCompany">
+// Copyright (c) PlaceholderCompany. All rights reserved.
+// </copyright>
+
+namespace IOCcontainer.IOC.Instance_Logic
 {
     using System;
 

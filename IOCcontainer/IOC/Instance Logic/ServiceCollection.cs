@@ -1,4 +1,8 @@
-﻿namespace IOCcontainer.IOC.Instance_Logic
+﻿// <copyright file="ServiceCollection.cs" company="PlaceholderCompany">
+// Copyright (c) PlaceholderCompany. All rights reserved.
+// </copyright>
+
+namespace IOCcontainer.IOC.Instance_Logic
 {
     using System.Collections.Generic;
     using IOCcontainer.IOC.Return_Instance_Logic;

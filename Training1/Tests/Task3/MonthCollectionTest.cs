@@ -1,4 +1,8 @@
-﻿namespace Training1.Tests.Task3
+﻿// <copyright file="MonthCollectionTest.cs" company="PlaceholderCompany">
+// Copyright (c) PlaceholderCompany. All rights reserved.
+// </copyright>
+
+namespace Training1.Tests.Task3
 {
     using System;
     using NUnit.Framework;

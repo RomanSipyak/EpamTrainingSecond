@@ -1,4 +1,8 @@
-﻿namespace SchoolProject.Comparers
+﻿// <copyright file="CourseComparer.cs" company="PlaceholderCompany">
+// Copyright (c) PlaceholderCompany. All rights reserved.
+// </copyright>
+
+namespace SchoolProject.Comparers
 {
     using System.Collections.Generic;
 

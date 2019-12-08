@@ -1,4 +1,8 @@
-﻿namespace Training7.FolderTaskVariant2
+﻿// <copyright file="FileNameComparer.cs" company="PlaceholderCompany">
+// Copyright (c) PlaceholderCompany. All rights reserved.
+// </copyright>
+
+namespace Training7.FolderTaskVariant2
 {
     using System;
     using System.Collections.Generic;

@@ -1,4 +1,8 @@
-﻿namespace RunProject.RunImplementations.Training1
+﻿// <copyright file="RunnerForAllTasks.cs" company="PlaceholderCompany">
+// Copyright (c) PlaceholderCompany. All rights reserved.
+// </copyright>
+
+namespace RunProject.RunImplementations.Training1
 {
     using System;
     using PrinterHelpers;

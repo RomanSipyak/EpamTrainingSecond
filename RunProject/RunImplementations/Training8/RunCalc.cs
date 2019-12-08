@@ -1,4 +1,8 @@
-﻿namespace RunProject.RunImplementations.Training8
+﻿// <copyright file="RunCalc.cs" company="PlaceholderCompany">
+// Copyright (c) PlaceholderCompany. All rights reserved.
+// </copyright>
+
+namespace RunProject.RunImplementations.Training8
 {
     using System;
     using global::Training8;
