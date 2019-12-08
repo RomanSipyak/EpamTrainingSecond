@@ -3,4 +3,4 @@
     Integration Tests located in https://github.com/RomanSipyak/IntegrationTestsSample 
     ( RazorPagesProject.Tests/Integration Tests/IndexPageTests.cs)
 
-    You can run trainig1-9 From RunProject(Console .Net Framework project)
+    You can run trainig1-9 From RunProject(Console .Net Framework project).Anothers projects also have information in ReadMe.md 
